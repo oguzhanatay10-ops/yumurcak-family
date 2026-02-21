@@ -53,7 +53,8 @@
         .candy-drop { position: fixed; top: -50px; font-size: 35px; z-index: 100; animation: fall 3s linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
 
-        .welcome-msg { margin-top: 60px; font-size: 28px; font-weight: bold; color: #ff6699; text-align: center; max-width: 800px; padding: 0 20px; }
+        /* BURAYI DEĞİŞTİRDİM: margin-top: 160px yaparak yazıyı aşağı çektim */
+        .welcome-msg { margin-top: 90px; font-size: 28px; font-weight: bold; color: #ff6699; text-align: center; max-width: 800px; padding: 0 20px; }
 
         /* GENEL KARAKTER SAYFASI STİLLERİ */
         .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 100px; animation: fadeIn 0.5s; }
@@ -80,10 +81,10 @@
 <body>
 
     <div id="anasayfa">
-        <div id="rainbow" class="sticker" style="top: 270px; left: 12%;" onclick="changeBg()">🌈</div>
-        <div id="wheel" class="sticker" style="bottom: 80px; left: 8%;" onclick="startWheel(this)">🎡</div>
-        <div id="candy" class="sticker" style="bottom: 260px; right: 15%;" onclick="candyRain()">🍭</div>
-        <div id="rocket" class="sticker" style="bottom: 70px; right: 13%;" onclick="launchRocket(this)">🚀</div>
+        <div id="rainbow" class="sticker" style="top: 300px; left: 10%;" onclick="changeBg()">🌈</div>
+        <div id="wheel" class="sticker" style="bottom: 100px; left: 8%;" onclick="startWheel(this)">🎡</div>
+        <div id="candy" class="sticker" style="top: 350px; right: 10%;" onclick="candyRain()">🍭</div>
+        <div id="rocket" class="sticker" style="bottom: 100px; right: 10%;" onclick="launchRocket(this)">🚀</div>
 
         <div class="poncik-header">Yumurcak Family</div>
         
@@ -121,13 +122,11 @@
     </div>
 
     <script>
-        // MENÜ FONKSİYONLARI
         function toggleMenu(e) { 
             e.stopPropagation(); 
             document.getElementById("myDropdown").classList.toggle("show"); 
         }
 
-        // SAYFA GEÇİŞ SİSTEMİ
         function sayfaDegistir(sayfaAdi) {
             document.getElementById('anasayfa').style.display = 'none';
             document.getElementById('ertugrul-sayfasi').style.display = 'none';
@@ -141,7 +140,6 @@
             window.scrollTo(0,0);
         }
 
-        // EĞLENCE FONKSİYONLARI
         function startWheel(el) { 
             el.classList.add('wheel-spin'); 
             setTimeout(() => el.classList.remove('wheel-spin'), 3000); 
@@ -169,8 +167,8 @@
             document.getElementById('anasayfa').style.background = colors[Math.floor(Math.random() * colors.length)];
         }
 
-        // DIŞARI TIKLAYINCA MENÜYÜ KAPAT
         window.onclick = function() { document.getElementById("myDropdown").classList.remove("show"); }
     </script>
 </body>
 </html>
+
