@@ -2,38 +2,25 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Yumurcak Family - İnteraktif Dünya</title>
+    <title>Yumurcak Family - Capybaraa Yayında!</title>
     <style>
-        /* Google Fonts'tan eğlenceli fontlar */
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
         body { margin: 0; padding: 0; font-family: 'Short Stack', cursive; overflow-x: hidden; }
 
-        /* --- 1. PONÇİK ANASAYFA --- */
+        /* --- 1. ANASAYFA --- */
         #anasayfa {
             background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
             min-height: 100vh; display: flex; flex-direction: column; align-items: center;
             position: relative; transition: background 0.5s;
         }
 
-        /* TOMBUL VE EĞLENCELİ BAŞLIK */
         .poncik-header {
             background: linear-gradient(to right, #ffcc00, #ff99cc);
-            width: 100%; padding: 80px 0; text-align: center;
-            color: white; font-family: 'Fredoka One', cursive; font-size: 100px;
-            letter-spacing: 5px; border-radius: 0 0 80px 80px;
-            text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10; transition: 0.3s;
+            width: 100%; padding: 80px 0; text-align: center; color: white; 
+            font-family: 'Fredoka One', cursive; font-size: 100px; border-radius: 0 0 80px 80px;
+            text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10;
         }
-        .poncik-header:hover { transform: scale(1.02); }
-
-        .welcome-msg {
-            margin-top: 100px; padding: 40px; max-width: 800px; text-align: center;
-            background: white; border: 8px dashed #ff99cc; border-radius: 50px;
-            color: #ff6699; font-size: 35px; font-weight: bold;
-            animation: float 3s infinite ease-in-out; z-index: 8;
-        }
-
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
         /* ANİMASYONLU MENÜ */
         .nav-container { margin-top: -45px; position: relative; z-index: 1000; }
@@ -42,7 +29,6 @@
             font-family: 'Fredoka One', cursive; border: 6px solid #ffcc00; border-radius: 60px;
             cursor: pointer; box-shadow: 0 10px 0px #ffcc00; outline: none; transition: 0.3s;
         }
-        
         .dropdown-content { 
             display: block; position: absolute; background: white; min-width: 320px; border-radius: 30px;
             border: 5px solid #ff99cc; margin-top: 20px; left: 50%;
@@ -51,49 +37,40 @@
             overflow: hidden; pointer-events: none;
         }
         .dropdown-content.show { transform: translateX(-50%) scaleY(1); opacity: 1; pointer-events: auto; }
-        .dropdown-content a { font-size: 30px; padding: 25px; text-decoration: none; color: #444; display: block; }
+        .dropdown-content a { font-size: 30px; padding: 25px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #eee; }
 
-        /* STICKERLAR VE ÖZEL HAREKETLER */
+        /* STICKERLAR */
         .sticker { position: absolute; font-size: 80px; cursor: pointer; z-index: 5; animation: bounce-normal 2.5s infinite ease-in-out; }
         @keyframes bounce-normal { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        
         .wheel-spin { animation: spin-fast 0.6s infinite linear !important; }
         @keyframes spin-fast { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
         .rocket-fly-left { animation: launch-left 1.5s forwards ease-in !important; }
         @keyframes launch-left { 0% { transform: translate(0, 0); } 100% { transform: translate(-1200px, -500px); opacity: 0; } }
-
         .candy-drop { position: fixed; top: -50px; font-size: 35px; z-index: 100; animation: fall 3s linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
 
-        /* --- 2. MR. ERTUĞRUL SAYFASI --- */
+        /* GENEL KARAKTER RESMİ STİLİ */
+        .char-img { width: 500px; border-radius: 40px; margin: 50px auto; display: block; }
+
+        /* --- 2. MR. ERTUĞRUL SAYFASI (ESKİ KISIMLAR KORUNDU) --- */
         #ertugrul-sayfasi { background: #000; color: white; min-height: 100vh; display: none; text-align: center; padding-bottom: 100px; }
-        .ert-header { background: #111; padding: 60px; border-bottom: 8px solid red; color: red; font-size: 85px; font-weight: bold; }
-        .char-img { width: 450px; border-radius: 30px; margin: 50px auto; border: 5px solid red; display: block; }
-        .hikaye-container { max-width: 1000px; margin: 0 auto; padding: 50px; background: rgba(20, 20, 20, 0.9); border-radius: 50px; text-align: left; }
-        .hikaye-baslik { color: red; font-size: 55px; text-align: center; border-bottom: 2px solid red; }
+        .ert-header { background: #111; padding: 60px; border-bottom: 8px solid red; color: red; font-size: 85px; font-weight: bold; text-shadow: 0 0 25px red; }
+        .ert-img { border: 5px solid red; box-shadow: 0 0 60px rgba(255,0,0,0.8); }
+        .hikaye-container { max-width: 1000px; margin: 0 auto; padding: 50px; background: rgba(20, 20, 20, 0.9); border-radius: 50px; border: 2px solid #333; text-align: left; line-height: 1.6; }
+        .hikaye-baslik { color: red; font-size: 55px; text-align: center; border-bottom: 2px solid red; display: block; }
         .hikaye-metni { font-size: 32px; color: #ddd; margin-bottom: 40px; }
 
-        /* MÜZİK BUTONU STİLİ */
-        #music-toggle {
-            position: fixed; bottom: 20px; left: 20px; z-index: 9999;
-            background: white; border: 4px solid #ffcc00; border-radius: 50%;
-            width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+        /* --- 3. CAPYBARAA SAYFASI --- */
+        #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; min-height: 100vh; display: none; text-align: center; padding-bottom: 100px; }
+        .capy-header { background: #ffb74d; padding: 60px; border-bottom: 8px solid #f57c00; color: white; font-family: 'Fredoka One', cursive; font-size: 85px; }
+        .capy-img-style { border: 8px solid #ffb74d; box-shadow: 0 0 40px rgba(245, 124, 0, 0.3); }
+        .capy-hikaye { max-width: 1000px; margin: 0 auto; padding: 50px; background: white; border-radius: 50px; border: 5px dashed #ffb74d; text-align: left; font-size: 32px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
-    <div id="music-toggle" onclick="toggleMusic()">🔈</div>
-
     <div id="anasayfa">
         <div id="rainbow" class="sticker" style="top: 250px; left: 5%;" onclick="changeBg()">🌈</div>
-        <div id="star" class="sticker" style="top: 300px; right: 8%;" onclick="this.innerText='✨'; setTimeout(()=>this.innerText='⭐',500)">⭐</div>
         <div id="wheel" class="sticker" style="bottom: 150px; left: 8%;" onclick="startWheel(this)">🎡</div>
         <div id="candy" class="sticker" style="bottom: 300px; right: 15%;" onclick="candyRain()">🍭</div>
         <div id="rocket" class="sticker" style="bottom: 80px; right: 5%;" onclick="launchRocket(this)">🚀</div>
@@ -104,54 +81,38 @@
             <button class="menu-btn" onclick="toggleMenu(event)">Karakterler ▾</button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="javascript:void(0)" onclick="sayfaDegistir('ertugrul')">🔥 Mr. Ertuğrul</a>
+                <a href="javascript:void(0)" onclick="sayfaDegistir('capybaraa')">🌿 Capybaraa</a>
             </div>
         </div>
 
-        <div class="welcome-msg">
-            Merhaba işte burası benim eğlenceli renkli dünyam sende katılmak istermisin??
-        </div>
+        <div class="welcome-msg" style="margin-top: 50px; font-size: 30px; font-weight: bold; color: #ff6699; text-align: center; max-width: 800px;">Merhaba işte burası benim eğlenceli renkli dünyam sende katılmak istermisin??</div>
     </div>
 
     <div id="ertugrul-sayfasi">
         <div class="ert-header">MR. ERTUĞRUL</div>
-        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img">
+        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img ert-img">
         <div class="hikaye-container">
             <div class="hikaye-baslik">Sayıların Efendisi</div>
-            <p class="hikaye-metni">Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu...</p>
-            <p class="hikaye-metni">Ertuğrul Bey'in en büyük hobisi, okulun uzun merdivenlerinden aşağı bakarken derin derin <b>düşünmektir</b>.</p>
-            <p class="hikaye-metni">Gücünü ise tek bir kaynaktan alır: Her sabah içtiği dumanı üstünde, bol limonlu bir kase <b>Mercimek Çorbası</b>!</p>
+            <p class="hikaye-metni">Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu... O, evrenin en büyük sırrını, yani kayıp <b>"0" (Sıfır)</b> sayısının gerçek gücünü keşfettiğinde değişti.</p>
+            <p class="hikaye-metni">Ertuğrul Bey'in en büyük hobisi, okulun uzun merdivenlerinden aşağı bakarken derin derin <b>düşünmektir</b>. Birçok kişi onun sadece basamakları saydığını sanır ama o, merdivenlerin her basamağında yeni bir formül geliştirir.</p>
+            <p class="hikaye-metni">Sert görünüşünün altında aslında <b>çok eğlenceli</b> bir ruh yatar. Derste şakalar yapmayı, öğrencilerini güldürmeyi çok sever. Gücünü ise tek bir kaynaktan alır: Her sabah içtiği dumanı üstünde, bol limonlu bir kase <b>Mercimek Çorbası</b>!</p>
         </div>
-        <button onclick="sayfaDegistir('anasayfa')" style="background: red; color: white; border: none; padding: 25px 60px; border-radius: 20px; cursor: pointer; font-size: 30px; margin-top: 50px;">← Geri Dön</button>
+        <button onclick="sayfaDegistir('anasayfa')" style="background: red; color: white; border: none; padding: 20px 50px; border-radius: 20px; cursor: pointer; font-size: 25px; margin-top: 30px;">← Geri Dön</button>
+    </div>
+
+    <div id="capybaraa-sayfasi">
+        <div class="capy-header">CAPYBARAA</div>
+        <img src="https://i.ibb.co/27CN1Hby/Gemini-Generated-mage-d1aw51d1aw51d1aw.png" class="char-img capy-img-style">
+        <div class="capy-hikaye">
+            <p>O, Yumurcak dünyasının en bilge ve sakin üyesi! 🌿</p>
+            <p><b>Capybaraa</b>, sadece portakal banyosu yapmaz, aynı zamanda Mr. Ertuğrul'un en karmaşık formüllerini not alması için ona o meşhur <b>Siyah Rotring</b> kalemini uzatır. 🖋️</p>
+            <p>Onun tüyleri o kadar yumuşaktır ki, sınav stresine giren her öğrenci ona bir kez dokunduğunda tüm stresini unutur. En büyük gücü <b>"Sonsuz Huzur"</b>dur. Capybaraa varken matematik bile bir oyun gibi gelir!</p>
+        </div>
+        <button onclick="sayfaDegistir('anasayfa')" style="background: #f57c00; color: white; border: none; padding: 20px 50px; border-radius: 20px; cursor: pointer; font-size: 25px; margin-top: 30px;">← Geri Dön</button>
     </div>
 
     <script>
-        const bgMusic = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('music-toggle');
-
-        // Müzik kontrol fonksiyonu
-        function toggleMusic() {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicBtn.innerText = '🔊';
-            } else {
-                bgMusic.pause();
-                musicBtn.innerText = '🔈';
-            }
-        }
-
-        // İlk etkileşimde müziği başlat
-        document.addEventListener('click', function() {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicBtn.innerText = '🔊';
-            }
-        }, { once: true });
-
         function toggleMenu(e) { e.stopPropagation(); document.getElementById("myDropdown").classList.toggle("show"); }
-        function changeBg() {
-            const colors = ['#fff9e6', '#e6f7ff', '#f0ffe6', '#fce6ff', '#ffe6e6'];
-            document.getElementById('anasayfa').style.background = colors[Math.floor(Math.random() * colors.length)];
-        }
         function startWheel(el) { el.classList.add('wheel-spin'); setTimeout(() => { el.classList.remove('wheel-spin'); }, 3000); }
         function candyRain() {
             for(let i=0; i<30; i++) {
@@ -165,23 +126,23 @@
             }
         }
         function launchRocket(el) { el.classList.add('rocket-fly-left'); setTimeout(() => { el.classList.remove('rocket-fly-left'); }, 2000); }
+        function changeBg() {
+            const colors = ['#fff9e6', '#e6f7ff', '#f0ffe6', '#fce6ff'];
+            document.getElementById('anasayfa').style.background = colors[Math.floor(Math.random() * colors.length)];
+        }
         function sayfaDegistir(sayfaAdi) {
-            if(sayfaAdi === 'ertugrul') {
-                document.getElementById('anasayfa').style.display = 'none';
-                document.getElementById('ertugrul-sayfasi').style.display = 'block';
-            } else {
-                document.getElementById('anasayfa').style.display = 'flex';
-                document.getElementById('ertugrul-sayfasi').style.display = 'none';
-            }
+            document.getElementById('anasayfa').style.display = 'none';
+            document.getElementById('ertugrul-sayfasi').style.display = 'none';
+            document.getElementById('capybaraa-sayfasi').style.display = 'none';
+            
+            if(sayfaAdi === 'ertugrul') document.getElementById('ertugrul-sayfasi').style.display = 'block';
+            else if(sayfaAdi === 'capybaraa') document.getElementById('capybaraa-sayfasi').style.display = 'block';
+            else document.getElementById('anasayfa').style.display = 'flex';
+            
             document.getElementById("myDropdown").classList.remove("show");
+            window.scrollTo(0,0);
         }
-
-        // Dışarı tıklanınca menüyü kapat
-        window.onclick = function(event) {
-            if (!event.target.matches('.menu-btn')) {
-                document.getElementById("myDropdown").classList.remove("show");
-            }
-        }
+        window.onclick = function() { document.getElementById("myDropdown").classList.remove("show"); }
     </script>
 </body>
 </html>
