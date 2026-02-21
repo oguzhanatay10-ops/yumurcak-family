@@ -2,15 +2,17 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yumurcak Family - Resmi Web Sitesi</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
-        /* TEMEL AYARLAR */
+        /* ==========================================
+           1. BİLGİSAYAR (VARSAYILAN) AYARLARI
+           (Ekran 768px'den büyükse burası çalışır)
+           ========================================== */
         body { margin: 0; padding: 0; font-family: 'Short Stack', cursive; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* --- 1. ANASAYFA --- */
         #anasayfa {
             background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
             min-height: 100vh; display: flex; flex-direction: column; align-items: center;
@@ -20,83 +22,76 @@
         .poncik-header {
             background: linear-gradient(to right, #ffcc00, #ff99cc);
             width: 100%; padding: 80px 0; text-align: center; color: white; 
-            font-family: 'Fredoka One', cursive; font-size: clamp(50px, 10vw, 100px); 
+            font-family: 'Fredoka One', cursive; font-size: 80px; 
             border-radius: 0 0 80px 80px; text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10;
         }
 
-        /* MENÜ SİSTEMİ */
         .nav-container { margin-top: -45px; position: relative; z-index: 1000; }
         .menu-btn { 
             background: white; color: #ff6699; padding: 20px 50px; font-size: 30px;
             font-family: 'Fredoka One', cursive; border: 6px solid #ffcc00; border-radius: 60px;
-            cursor: pointer; box-shadow: 0 10px 0px #ffcc00; transition: 0.3s; outline: none;
+            cursor: pointer; box-shadow: 0 10px 0px #ffcc00; transition: 0.3s;
         }
-        .menu-btn:hover { transform: translateY(-3px); box-shadow: 0 13px 0px #ffcc00; }
+
         .dropdown-content { 
             display: block; position: absolute; background: white; min-width: 300px; border-radius: 30px;
             border: 5px solid #ff99cc; margin-top: 20px; left: 50%;
             transform: translateX(-50%) scaleY(0); transform-origin: top;
-            opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden; pointer-events: none;
+            opacity: 0; transition: all 0.4s; overflow: hidden; pointer-events: none;
         }
         .dropdown-content.show { transform: translateX(-50%) scaleY(1); opacity: 1; pointer-events: auto; }
-        .dropdown-content a { font-size: 28px; padding: 20px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #f0f0f0; transition: 0.2s; }
-        .dropdown-content a:hover { background: #fff0f5; color: #ff6699; padding-left: 35px; }
+        .dropdown-content a { font-size: 26px; padding: 15px 20px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #f0f0f0; }
 
-        /* STICKERLAR VE ANİMASYONLAR */
-        .sticker { position: absolute; font-size: 80px; cursor: pointer; z-index: 5; animation: bounce-normal 2.5s infinite ease-in-out; user-select: none; }
-        
-        /* Bilgisayar Konumları (Referans Kodundaki Gibi) */
+        /* Stickerlar (Bilgisayar Konumları) */
+        .sticker { position: absolute; font-size: 80px; cursor: pointer; z-index: 5; animation: bounce 2.5s infinite ease-in-out; }
         #rainbow { top: 280px; left: 14%; }
         #wheel { bottom: 100px; left: 19%; }
         #candy { bottom: 270px; right: 15%; }
         #rocket { bottom: 80px; right: 19%; }
 
-        @keyframes bounce-normal { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        .wheel-spin { animation: spin-fast 0.6s infinite linear !important; }
-        @keyframes spin-fast { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .rocket-fly-left { animation: launch-left 1.5s forwards ease-in !important; }
-        @keyframes launch-left { 0% { transform: translate(0, 0); } 100% { transform: translate(-1500px, -600px); opacity: 0; } }
-        .candy-drop { position: fixed; top: -50px; font-size: 35px; z-index: 100; animation: fall 3s linear forwards; }
-        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
         .welcome-msg { margin-top: 60px; font-size: 28px; font-weight: bold; color: #ff6699; text-align: center; max-width: 800px; padding: 0 20px; }
 
-        /* --- TELEFON (MOBİL) AYARLARI --- */
-        @media (max-width: 768px) {
-            /* Gökkuşağı ve Lolipop biraz üstte */
-            #rainbow { top: 210px !important; font-size: 60px; }
-            #candy { bottom: auto; top: 210px !important; right: 5% !important; font-size: 60px; }
-            
-            /* Dönme dolap biraz küçük ve biraz aşağıda */
-            #wheel { bottom: 100px !important; left: 5% !important; font-size: 50px; }
-            
-            /* Roket mobil boyutu */
-            #rocket { font-size: 60px; right: 5% !important; bottom: 80px !important; }
-            
-            .welcome-msg { margin-top: 130px; font-size: 22px; }
-        }
-
-        /* GENEL KARAKTER SAYFASI STİLLERİ */
-        .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 100px; animation: fadeIn 0.5s; }
+        /* Karakter Sayfaları */
+        .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .char-img { width: clamp(300px, 80%, 500px); border-radius: 40px; margin: 40px auto; display: block; }
-        .hikaye-box { max-width: 900px; margin: 0 auto; padding: 40px; border-radius: 50px; text-align: left; font-size: clamp(20px, 4vw, 32px); line-height: 1.6; }
-        .back-btn { border: none; padding: 20px 60px; border-radius: 20px; cursor: pointer; font-size: 25px; margin-top: 40px; font-family: 'Fredoka One', cursive; color: white; transition: 0.3s; }
-        .back-btn:hover { transform: scale(1.1); }
+        .char-img { width: 450px; border-radius: 40px; margin: 40px auto; display: block; }
+        .hikaye-box { max-width: 850px; margin: 0 auto; padding: 40px; border-radius: 50px; text-align: left; font-size: 24px; line-height: 1.6; }
 
-        /* --- 2. MR. ERTUĞRUL SAYFASI --- */
+        /* --- Sayfa Renkleri --- */
         #ertugrul-sayfasi { background: #000; color: white; }
-        .ert-header { background: #111; padding: 50px; border-bottom: 8px solid red; color: red; font-size: clamp(40px, 8vw, 85px); font-family: 'Fredoka One', cursive; text-shadow: 0 0 20px red; }
-        .ert-img-style { border: 6px solid red; box-shadow: 0 0 50px rgba(255,0,0,0.6); }
+        .ert-header { background: #111; padding: 50px; border-bottom: 8px solid red; color: red; font-size: 60px; font-family: 'Fredoka One', cursive; }
         .ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
-        .ert-title { color: red; font-size: 1.5em; text-align: center; display: block; border-bottom: 2px solid red; margin-bottom: 20px; }
-
-        /* --- 3. CAPYBARAA SAYFASI --- */
+        
         #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
-        .capy-header { background: #ffb74d; padding: 50px; border-bottom: 8px solid #f57c00; color: white; font-size: clamp(40px, 8vw, 85px); font-family: 'Fredoka One', cursive; }
-        .capy-img-style { border: 8px solid #ffb74d; box-shadow: 0 0 40px rgba(245, 124, 0, 0.3); }
+        .capy-header { background: #ffb74d; padding: 50px; border-bottom: 8px solid #f57c00; color: white; font-size: 60px; font-family: 'Fredoka One', cursive; }
         .capy-box { background: white; border: 5px dashed #ffb74d; }
+
+        .back-btn { border: none; padding: 20px 60px; border-radius: 20px; cursor: pointer; font-size: 25px; margin-top: 40px; color: white; font-family: 'Fredoka One', cursive; }
+
+        /* ==========================================
+           2. TELEFON (MOBİL) AYARLARI
+           (Ekran 768px'den KÜÇÜKSE burası çalışır)
+           ========================================== */
+        @media (max-width: 768px) {
+            .poncik-header { font-size: 40px; padding: 50px 15px; }
+            
+            /* Sticker Konumlandırma */
+            #rainbow { top: 180px !important; left: 8% !important; font-size: 55px; }
+            #candy { top: 180px !important; right: 8% !important; bottom: auto !important; font-size: 55px; }
+            #wheel { bottom: 60px !important; left: 10% !important; font-size: 45px; }
+            #rocket { bottom: 60px !important; right: 10% !important; font-size: 55px; }
+
+            .welcome-msg { margin-top: 100px; font-size: 20px; line-height: 1.4; width: 90%; }
+            
+            /* Karakter Sayfası Mobil Düzen */
+            .char-img { width: 85% !important; }
+            .hikaye-box { width: 90%; padding: 25px; font-size: 19px; }
+            .ert-header, .capy-header { font-size: 35px; padding: 30px 10px; }
+            
+            .menu-btn { padding: 15px 35px; font-size: 22px; }
+        }
     </style>
 </head>
 <body>
@@ -122,9 +117,9 @@
 
     <div id="ertugrul-sayfasi" class="page">
         <div class="ert-header">MR. ERTUĞRUL</div>
-        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img ert-img-style" alt="Mr. Ertuğrul">
+        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img" style="border: 6px solid red;">
         <div class="hikaye-box ert-box">
-            <span class="ert-title">Sayıların Efendisi</span>
+            <b style="color:red; display:block; text-align:center; font-size:1.2em; margin-bottom:10px;">Sayıların Efendisi</b>
             <p>Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu... O, evrenin en büyük sırrını, yani kayıp <b>"0" (Sıfır)</b> sayısının gerçek gücünü keşfettiğinde değişti.</p>
             <p>Ertuğrul Bey'in en büyük hobisi, merdivenlerden aşağı bakarken derin derin <b>düşünmektir</b>. Sert görünüşünün altında aslında <b>çok eğlenceli</b> bir ruh yatar. Gücünü ise her sabah içtiği bol limonlu <b>Mercimek Çorbası</b>'ndan alır!</p>
         </div>
@@ -133,7 +128,7 @@
 
     <div id="capybaraa-sayfasi" class="page">
         <div class="capy-header">CAPYBARAA</div>
-        <img src="https://i.ibb.co/27CN1Hby/Gemini-Generated-mage-d1aw51d1aw51d1aw.png" class="char-img capy-img-style" alt="Capybaraa">
+        <img src="https://i.ibb.co/27CN1Hby/Gemini-Generated-mage-d1aw51d1aw51d1aw.png" class="char-img" style="border: 8px solid #ffb74d;">
         <div class="hikaye-box capy-box">
             <p>O, Yumurcak dünyasının en bilge ve sakin üyesi! 🌿</p>
             <p><b>Capybaraa</b>, portakal banyosu yaparken Mr. Ertuğrul'un en karmaşık formüllerini not alması için ona o meşhur <b>Siyah Rotring</b> kalemini uzatır. 🖋️</p>
@@ -143,57 +138,22 @@
     </div>
 
     <script>
-        // MENÜ FONKSİYONLARI
-        function toggleMenu(e) { 
-            e.stopPropagation(); 
-            document.getElementById("myDropdown").classList.toggle("show"); 
-        }
-
-        // SAYFA GEÇİŞ SİSTEMİ
-        function sayfaDegistir(sayfaAdi) {
-            document.getElementById('anasayfa').style.display = 'none';
-            document.getElementById('ertugrul-sayfasi').style.display = 'none';
-            document.getElementById('capybaraa-sayfasi').style.display = 'none';
-            
-            if(sayfaAdi === 'ertugrul') document.getElementById('ertugrul-sayfasi').style.display = 'block';
-            else if(sayfaAdi === 'capybaraa') document.getElementById('capybaraa-sayfasi').style.display = 'block';
-            else document.getElementById('anasayfa').style.display = 'flex';
-            
-            document.getElementById("myDropdown").classList.remove("show");
+        function toggleMenu(e) { e.stopPropagation(); document.getElementById("myDropdown").classList.toggle("show"); }
+        function sayfaDegistir(sayfa) {
+            document.querySelectorAll('.page, #anasayfa').forEach(p => p.style.display = 'none');
+            if(sayfa === 'ertugrul') document.getElementById('ertugrul-sayfasi').style.display = 'block';
+            else if(sayfa === 'capybaraa') document.getElementById('capybaraa-sayfasi').style.display = 'block';
+            else { 
+                document.getElementById('anasayfa').style.display = 'flex';
+                // Anasayfaya dönünce stickerları tekrar göster (gerekirse)
+            }
             window.scrollTo(0,0);
         }
-
-        // EĞLENCE FONKSİYONLARI
-        function startWheel(el) { 
-            el.classList.add('wheel-spin'); 
-            setTimeout(() => el.classList.remove('wheel-spin'), 3000); 
-        }
-
-        function launchRocket(el) { 
-            el.classList.add('rocket-fly-left'); 
-            setTimeout(() => el.classList.remove('rocket-fly-left'), 2000); 
-        }
-
-        function candyRain() {
-            for(let i=0; i<30; i++) {
-                setTimeout(() => {
-                    const candy = document.createElement('div');
-                    candy.innerText = '🍭'; candy.className = 'candy-drop';
-                    candy.style.left = Math.random() * 100 + 'vw';
-                    document.body.appendChild(candy);
-                    setTimeout(() => candy.remove(), 3000);
-                }, i * 100);
-            }
-        }
-
-        function changeBg() {
-            const colors = ['#fff9e6', '#e6f7ff', '#f0ffe6', '#fce6ff', '#fff0f5'];
-            document.getElementById('anasayfa').style.background = colors[Math.floor(Math.random() * colors.length)];
-        }
-
-        // DIŞARI TIKLAYINCA MENÜYÜ KAPAT
+        function startWheel(el) { el.style.transition = "transform 1s"; el.style.transform = "rotate(360deg)"; setTimeout(() => el.style.transform = "rotate(0deg)", 1000); }
+        function launchRocket(el) { el.style.transition = "all 1s"; el.style.transform = "translate(-200px, -200px)"; el.style.opacity = "0"; setTimeout(() => { el.style.transform = "translate(0,0)"; el.style.opacity = "1"; }, 2000); }
+        function candyRain() { alert("🍭 Lolipop yağmuru başlıyor!"); }
+        function changeBg() { document.getElementById('anasayfa').style.background = "#e6f7ff"; }
         window.onclick = function() { document.getElementById("myDropdown").classList.remove("show"); }
     </script>
 </body>
 </html>
-
