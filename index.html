@@ -9,7 +9,6 @@
 
         /* ==========================================
            1. BİLGİSAYAR (VARSAYILAN) AYARLARI
-           (Ekran 768px'den büyükse burası çalışır)
            ========================================== */
         body { margin: 0; padding: 0; font-family: 'Short Stack', cursive; overflow-x: hidden; scroll-behavior: smooth; }
 
@@ -42,7 +41,7 @@
         .dropdown-content.show { transform: translateX(-50%) scaleY(1); opacity: 1; pointer-events: auto; }
         .dropdown-content a { font-size: 26px; padding: 15px 20px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #f0f0f0; }
 
-        /* Stickerlar (Bilgisayar Konumları) */
+        /* Stickerlar */
         .sticker { position: absolute; font-size: 80px; cursor: pointer; z-index: 5; animation: bounce 2.5s infinite ease-in-out; }
         #rainbow { top: 280px; left: 14%; }
         #wheel { bottom: 100px; left: 19%; }
@@ -53,44 +52,52 @@
 
         .welcome-msg { margin-top: 60px; font-size: 28px; font-weight: bold; color: #ff6699; text-align: center; max-width: 800px; padding: 0 20px; }
 
-        /* Karakter Sayfaları */
+        /* --- KARAKTER SAYFALARI (BİLGİSAYAR İÇİN KÜÇÜLTÜLDÜ) --- */
         .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .char-img { width: 450px; border-radius: 40px; margin: 40px auto; display: block; }
-        .hikaye-box { max-width: 850px; margin: 0 auto; padding: 40px; border-radius: 50px; text-align: left; font-size: 24px; line-height: 1.6; }
+        
+        .char-img { width: 400px; border-radius: 40px; margin: 30px auto; display: block; }
+        
+        .hikaye-box { 
+            max-width: 750px; /* Kutuyu biraz daralttık */
+            margin: 0 auto; 
+            padding: 30px; 
+            border-radius: 40px; 
+            text-align: left; 
+            font-size: 20px; /* Bilgisayar için yazı boyutu 24px'den 20px'e düşürüldü */
+            line-height: 1.5; 
+        }
 
-        /* --- Sayfa Renkleri --- */
         #ertugrul-sayfasi { background: #000; color: white; }
-        .ert-header { background: #111; padding: 50px; border-bottom: 8px solid red; color: red; font-size: 60px; font-family: 'Fredoka One', cursive; }
+        .ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 55px; font-family: 'Fredoka One', cursive; }
         .ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
         
         #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
-        .capy-header { background: #ffb74d; padding: 50px; border-bottom: 8px solid #f57c00; color: white; font-size: 60px; font-family: 'Fredoka One', cursive; }
+        .capy-header { background: #ffb74d; padding: 40px; border-bottom: 8px solid #f57c00; color: white; font-size: 55px; font-family: 'Fredoka One', cursive; }
         .capy-box { background: white; border: 5px dashed #ffb74d; }
 
-        .back-btn { border: none; padding: 20px 60px; border-radius: 20px; cursor: pointer; font-size: 25px; margin-top: 40px; color: white; font-family: 'Fredoka One', cursive; }
+        .back-btn { border: none; padding: 15px 45px; border-radius: 20px; cursor: pointer; font-size: 22px; margin-top: 30px; color: white; font-family: 'Fredoka One', cursive; }
 
         /* ==========================================
            2. TELEFON (MOBİL) AYARLARI
-           (Ekran 768px'den KÜÇÜKSE burası çalışır)
            ========================================== */
         @media (max-width: 768px) {
             .poncik-header { font-size: 40px; padding: 50px 15px; }
             
-            /* Sticker Konumlandırma */
             #rainbow { top: 180px !important; left: 8% !important; font-size: 55px; }
             #candy { top: 180px !important; right: 8% !important; bottom: auto !important; font-size: 55px; }
             #wheel { bottom: 60px !important; left: 10% !important; font-size: 45px; }
             #rocket { bottom: 60px !important; right: 10% !important; font-size: 55px; }
 
-            .welcome-msg { margin-top: 100px; font-size: 20px; line-height: 1.4; width: 90%; }
+            .welcome-msg { margin-top: 100px; font-size: 20px; width: 90%; }
             
-            /* Karakter Sayfası Mobil Düzen */
             .char-img { width: 85% !important; }
-            .hikaye-box { width: 90%; padding: 25px; font-size: 19px; }
+            .hikaye-box { 
+                width: 90%; 
+                padding: 25px; 
+                font-size: 19px; /* Telefonun okunabilirliği için burayı koruduk */
+            }
             .ert-header, .capy-header { font-size: 35px; padding: 30px 10px; }
-            
-            .menu-btn { padding: 15px 35px; font-size: 22px; }
         }
     </style>
 </head>
@@ -140,19 +147,18 @@
     <script>
         function toggleMenu(e) { e.stopPropagation(); document.getElementById("myDropdown").classList.toggle("show"); }
         function sayfaDegistir(sayfa) {
-            document.querySelectorAll('.page, #anasayfa').forEach(p => p.style.display = 'none');
+            document.getElementById('anasayfa').style.display = 'none';
+            document.getElementById('ertugrul-sayfasi').style.display = 'none';
+            document.getElementById('capybaraa-sayfasi').style.display = 'none';
             if(sayfa === 'ertugrul') document.getElementById('ertugrul-sayfasi').style.display = 'block';
             else if(sayfa === 'capybaraa') document.getElementById('capybaraa-sayfasi').style.display = 'block';
-            else { 
-                document.getElementById('anasayfa').style.display = 'flex';
-                // Anasayfaya dönünce stickerları tekrar göster (gerekirse)
-            }
+            else document.getElementById('anasayfa').style.display = 'flex';
             window.scrollTo(0,0);
         }
         function startWheel(el) { el.style.transition = "transform 1s"; el.style.transform = "rotate(360deg)"; setTimeout(() => el.style.transform = "rotate(0deg)", 1000); }
         function launchRocket(el) { el.style.transition = "all 1s"; el.style.transform = "translate(-200px, -200px)"; el.style.opacity = "0"; setTimeout(() => { el.style.transform = "translate(0,0)"; el.style.opacity = "1"; }, 2000); }
-        function candyRain() { alert("🍭 Lolipop yağmuru başlıyor!"); }
-        function changeBg() { document.getElementById('anasayfa').style.background = "#e6f7ff"; }
+        function candyRain() { alert("🍭 Lolipoplar yolda!"); }
+        function changeBg() { document.getElementById('anasayfa').style.background = "#fff0f5"; }
         window.onclick = function() { document.getElementById("myDropdown").classList.remove("show"); }
     </script>
 </body>
