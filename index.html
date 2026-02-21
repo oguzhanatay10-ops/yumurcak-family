@@ -2,15 +2,18 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yumurcak Family - Resmi Web Sitesi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yumurcak Family - Stickerlar Yazıya Yakın</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
-        /* TEMEL AYARLAR */
-        body { margin: 0; padding: 0; font-family: 'Short Stack', cursive; overflow-x: hidden; scroll-behavior: smooth; }
+        /* --- TEMEL AYARLAR --- */
+        body { 
+            margin: 0; padding: 0; font-family: 'Short Stack', cursive; 
+            overflow-x: hidden; scroll-behavior: smooth; 
+            -webkit-tap-highlight-color: transparent;
+        }
 
-        /* --- 1. ANASAYFA --- */
         #anasayfa {
             background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
             min-height: 100vh; display: flex; flex-direction: column; align-items: center;
@@ -19,72 +22,100 @@
 
         .poncik-header {
             background: linear-gradient(to right, #ffcc00, #ff99cc);
-            width: 100%; padding: 80px 0; text-align: center; color: white; 
-            font-family: 'Fredoka One', cursive; font-size: clamp(50px, 10vw, 100px); 
-            border-radius: 0 0 80px 80px; text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10;
+            width: 100%; padding: 60px 20px; text-align: center; color: white; 
+            font-family: 'Fredoka One', cursive; font-size: clamp(40px, 8vw, 90px); 
+            border-radius: 0 0 50px 50px; text-shadow: 4px 4px 0px rgba(0,0,0,0.1); z-index: 10;
+            box-sizing: border-box;
         }
 
-        /* MENÜ SİSTEMİ */
-        .nav-container { margin-top: -45px; position: relative; z-index: 1000; }
+        /* --- MENÜ SİSTEMİ --- */
+        .nav-container { margin-top: -30px; position: relative; z-index: 1000; }
         .menu-btn { 
-            background: white; color: #ff6699; padding: 20px 50px; font-size: 30px;
-            font-family: 'Fredoka One', cursive; border: 6px solid #ffcc00; border-radius: 60px;
-            cursor: pointer; box-shadow: 0 10px 0px #ffcc00; transition: 0.3s; outline: none;
+            background: white; color: #ff6699; padding: 15px 45px; font-size: 26px;
+            font-family: 'Fredoka One', cursive; border: 5px solid #ffcc00; border-radius: 50px;
+            cursor: pointer; box-shadow: 0 8px 0px #ffcc00; transition: 0.3s;
         }
-        .menu-btn:hover { transform: translateY(-3px); box-shadow: 0 13px 0px #ffcc00; }
+
         .dropdown-content { 
-            display: block; position: absolute; background: white; min-width: 300px; border-radius: 30px;
-            border: 5px solid #ff99cc; margin-top: 20px; left: 50%;
+            display: block; position: absolute; background: white; min-width: 250px; border-radius: 25px;
+            border: 4px solid #ff99cc; margin-top: 15px; left: 50%;
             transform: translateX(-50%) scaleY(0); transform-origin: top;
             opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden; pointer-events: none;
+            overflow: hidden; pointer-events: none; z-index: 2000;
         }
         .dropdown-content.show { transform: translateX(-50%) scaleY(1); opacity: 1; pointer-events: auto; }
-        .dropdown-content a { font-size: 28px; padding: 20px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #f0f0f0; transition: 0.2s; }
-        .dropdown-content a:hover { background: #fff0f5; color: #ff6699; padding-left: 35px; }
+        .dropdown-content a { font-size: 22px; padding: 15px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #eee; }
 
-        /* STICKERLAR VE ANİMASYONLAR */
-        .sticker { position: absolute; font-size: 80px; cursor: pointer; z-index: 5; animation: bounce-normal 2.5s infinite ease-in-out; user-select: none; }
-        @keyframes bounce-normal { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        /* --- STICKERLAR (YAZIYA YAKINLAŞTIRILMIŞ) --- */
+        .sticker { 
+            position: absolute; font-size: 75px; 
+            z-index: 5; animation: bounce-normal 2.5s infinite ease-in-out; 
+            user-select: none;
+        }
+        
+        /* Bilgisayar için yazı etrafında toplandılar */
+        #rainbow { top: 320px; left: 15%; }
+        #candy { top: 320px; right: 15%; }
+        #wheel { top: 480px; left: 18%; }
+        #rocket { top: 480px; right: 18%; }
+
+        @keyframes bounce-normal { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         .wheel-spin { animation: spin-fast 0.6s infinite linear !important; }
         @keyframes spin-fast { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .rocket-fly-left { animation: launch-left 1.5s forwards ease-in !important; }
-        @keyframes launch-left { 0% { transform: translate(0, 0); } 100% { transform: translate(-1500px, -600px); opacity: 0; } }
-        .candy-drop { position: fixed; top: -50px; font-size: 35px; z-index: 100; animation: fall 3s linear forwards; }
-        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        .rocket-fly-left { animation: launch-left 1.2s forwards ease-in !important; }
+        @keyframes launch-left { 100% { transform: translate(-1000px, -500px); opacity: 0; } }
 
-        /* BURAYI DEĞİŞTİRDİM: margin-top: 160px yaparak yazıyı aşağı çektim */
-        .welcome-msg { margin-top: 90px; font-size: 28px; font-weight: bold; color: #ff6699; text-align: center; max-width: 800px; padding: 0 20px; }
+        .welcome-msg { 
+            margin-top: 130px; font-size: 26px; font-weight: bold; color: #ff6699; 
+            text-align: center; max-width: 800px; padding: 0 20px; line-height: 1.5; z-index: 6; 
+        }
 
-        /* GENEL KARAKTER SAYFASI STİLLERİ */
-        .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 100px; animation: fadeIn 0.5s; }
+        /* --- MOBİL ÖZEL AYARLAR --- */
+        @media (max-width: 768px) {
+            .poncik-header { padding: 40px 10px; font-size: 45px; }
+            .welcome-msg { margin-top: 160px; font-size: 22px; max-width: 85%; }
+            
+            .dropdown-content { 
+                position: fixed; top: 50%; left: 50%; width: 80%;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            .dropdown-content.show { transform: translate(-50%, -50%) scale(1); }
+
+            /* Mobilde de yazıya yakınlaştılar */
+            .sticker { font-size: 60px; }
+            #rainbow { top: 230px; left: 5%; }
+            #candy { top: 230px; right: 5%; }
+            #wheel { top: 420px; left: 10%; }
+            #rocket { top: 420px; right: 10%; }
+        }
+
+        /* --- KARAKTER SAYFALARI --- */
+        .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .char-img { width: clamp(300px, 80%, 500px); border-radius: 40px; margin: 40px auto; display: block; }
-        .hikaye-box { max-width: 900px; margin: 0 auto; padding: 40px; border-radius: 50px; text-align: left; font-size: clamp(20px, 4vw, 32px); line-height: 1.6; }
-        .back-btn { border: none; padding: 20px 60px; border-radius: 20px; cursor: pointer; font-size: 25px; margin-top: 40px; font-family: 'Fredoka One', cursive; color: white; transition: 0.3s; }
-        .back-btn:hover { transform: scale(1.1); }
+        .char-img { width: 90%; max-width: 500px; border-radius: 30px; margin: 30px auto; display: block; }
+        .hikaye-box { max-width: 800px; margin: 0 auto; padding: 30px; border-radius: 40px; text-align: left; font-size: 24px; line-height: 1.6; }
+        .back-btn { border: none; padding: 15px 50px; border-radius: 15px; font-size: 22px; margin-top: 30px; font-family: 'Fredoka One', cursive; color: white; cursor: pointer; }
 
-        /* --- 2. MR. ERTUĞRUL SAYFASI --- */
         #ertugrul-sayfasi { background: #000; color: white; }
-        .ert-header { background: #111; padding: 50px; border-bottom: 8px solid red; color: red; font-size: clamp(40px, 8vw, 85px); font-family: 'Fredoka One', cursive; text-shadow: 0 0 20px red; }
-        .ert-img-style { border: 6px solid red; box-shadow: 0 0 50px rgba(255,0,0,0.6); }
-        .ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
-        .ert-title { color: red; font-size: 1.5em; text-align: center; display: block; border-bottom: 2px solid red; margin-bottom: 20px; }
+        .ert-header { background: #111; padding: 40px; border-bottom: 6px solid red; color: red; font-size: clamp(35px, 8vw, 75px); font-family: 'Fredoka One', cursive; }
+        .ert-box { background: rgba(30,30,30,0.9); border: 2px solid red; }
 
-        /* --- 3. CAPYBARAA SAYFASI --- */
         #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
-        .capy-header { background: #ffb74d; padding: 50px; border-bottom: 8px solid #f57c00; color: white; font-size: clamp(40px, 8vw, 85px); font-family: 'Fredoka One', cursive; }
-        .capy-img-style { border: 8px solid #ffb74d; box-shadow: 0 0 40px rgba(245, 124, 0, 0.3); }
-        .capy-box { background: white; border: 5px dashed #ffb74d; }
+        .capy-header { background: #ffb74d; padding: 40px; border-bottom: 6px solid #f57c00; color: white; font-size: clamp(35px, 8vw, 75px); font-family: 'Fredoka One', cursive; }
+        .capy-box { background: white; border: 4px dashed #ffb74d; }
+
+        #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; }
     </style>
 </head>
 <body>
 
+    <div id="overlay" onclick="toggleMenu()"></div>
+
     <div id="anasayfa">
-        <div id="rainbow" class="sticker" style="top: 300px; left: 10%;" onclick="changeBg()">🌈</div>
-        <div id="wheel" class="sticker" style="bottom: 100px; left: 8%;" onclick="startWheel(this)">🎡</div>
-        <div id="candy" class="sticker" style="top: 350px; right: 10%;" onclick="candyRain()">🍭</div>
-        <div id="rocket" class="sticker" style="bottom: 100px; right: 10%;" onclick="launchRocket(this)">🚀</div>
+        <div id="rainbow" class="sticker" onclick="changeBg()">🌈</div>
+        <div id="wheel" class="sticker" onclick="startWheel(this)">🎡</div>
+        <div id="candy" class="sticker" onclick="candyRain()">🍭</div>
+        <div id="rocket" class="sticker" onclick="launchRocket(this)">🚀</div>
 
         <div class="poncik-header">Yumurcak Family</div>
         
@@ -101,74 +132,74 @@
 
     <div id="ertugrul-sayfasi" class="page">
         <div class="ert-header">MR. ERTUĞRUL</div>
-        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img ert-img-style" alt="Mr. Ertuğrul">
+        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img">
         <div class="hikaye-box ert-box">
-            <span class="ert-title">Sayıların Efendisi</span>
-            <p>Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu... O, evrenin en büyük sırrını, yani kayıp <b>"0" (Sıfır)</b> sayısının gerçek gücünü keşfettiğinde değişti.</p>
-            <p>Ertuğrul Bey'in en büyük hobisi, merdivenlerden aşağı bakarken derin derin <b>düşünmektir</b>. Sert görünüşünün altında aslında <b>çok eğlenceli</b> bir ruh yatar. Gücünü ise her sabah içtiği bol limonlu <b>Mercimek Çorbası</b>'ndan alır!</p>
+            <p>Gündüzleri Matematik Öğretmeni, geceleri şehrin koruyucusu... Gücünü bol limonlu <b>Mercimek Çorbası</b>'ndan alır!</p>
         </div>
         <button class="back-btn" style="background: red;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
 
     <div id="capybaraa-sayfasi" class="page">
         <div class="capy-header">CAPYBARAA</div>
-        <img src="https://i.ibb.co/27CN1Hby/Gemini-Generated-mage-d1aw51d1aw51d1aw.png" class="char-img capy-img-style" alt="Capybaraa">
+        <img src="https://i.ibb.co/27CN1Hby/Gemini-Generated-mage-d1aw51d1aw51d1aw.png" class="char-img">
         <div class="hikaye-box capy-box">
-            <p>O, Yumurcak dünyasının en bilge ve sakin üyesi! 🌿</p>
-            <p><b>Capybaraa</b>, portakal banyosu yaparken Mr. Ertuğrul'un en karmaşık formüllerini not alması için ona o meşhur <b>Siyah Rotring</b> kalemini uzatır. 🖋️</p>
-            <p>Onun tüyleri huzur verir, bakışları stresi yok eder. En büyük gücü <b>"Sonsuz Huzur"</b>dur. Capybaraa yanınızdayken en zor matematik problemleri bile çocuk oyuncağına dönüşür!</p>
+            <p>Dünyanın en bilge üyesi! En büyük gücü <b>"Sonsuz Huzur"</b>dur. Capybaraa yanınızdayken matematik bile kolaylaşır!</p>
         </div>
         <button class="back-btn" style="background: #f57c00;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
 
     <script>
         function toggleMenu(e) { 
-            e.stopPropagation(); 
-            document.getElementById("myDropdown").classList.toggle("show"); 
+            if(e) e.stopPropagation();
+            const dropdown = document.getElementById("myDropdown");
+            const overlay = document.getElementById("overlay");
+            const isShow = dropdown.classList.toggle("show");
+            if(window.innerWidth <= 768) {
+                overlay.style.display = isShow ? "block" : "none";
+            }
         }
 
         function sayfaDegistir(sayfaAdi) {
             document.getElementById('anasayfa').style.display = 'none';
             document.getElementById('ertugrul-sayfasi').style.display = 'none';
             document.getElementById('capybaraa-sayfasi').style.display = 'none';
-            
             if(sayfaAdi === 'ertugrul') document.getElementById('ertugrul-sayfasi').style.display = 'block';
             else if(sayfaAdi === 'capybaraa') document.getElementById('capybaraa-sayfasi').style.display = 'block';
             else document.getElementById('anasayfa').style.display = 'flex';
-            
             document.getElementById("myDropdown").classList.remove("show");
+            document.getElementById("overlay").style.display = "none";
             window.scrollTo(0,0);
         }
 
-        function startWheel(el) { 
-            el.classList.add('wheel-spin'); 
-            setTimeout(() => el.classList.remove('wheel-spin'), 3000); 
-        }
-
-        function launchRocket(el) { 
-            el.classList.add('rocket-fly-left'); 
-            setTimeout(() => el.classList.remove('rocket-fly-left'), 2000); 
-        }
-
+        function startWheel(el) { el.classList.add('wheel-spin'); setTimeout(() => el.classList.remove('wheel-spin'), 3000); }
+        function launchRocket(el) { el.classList.add('rocket-fly-left'); setTimeout(() => el.classList.remove('rocket-fly-left'), 1500); }
+        
         function candyRain() {
-            for(let i=0; i<30; i++) {
+            for(let i=0; i<20; i++) {
                 setTimeout(() => {
                     const candy = document.createElement('div');
-                    candy.innerText = '🍭'; candy.className = 'candy-drop';
-                    candy.style.left = Math.random() * 100 + 'vw';
+                    candy.innerText = '🍭'; candy.className = 'sticker';
+                    candy.style.position = 'fixed';
+                    candy.style.left = Math.random() * 90 + 'vw';
+                    candy.style.top = '-50px';
+                    candy.style.zIndex = '2001';
+                    candy.style.transition = 'top 3s linear';
                     document.body.appendChild(candy);
-                    setTimeout(() => candy.remove(), 3000);
-                }, i * 100);
+                    setTimeout(() => candy.style.top = '110vh', 10);
+                    setTimeout(() => candy.remove(), 3100);
+                }, i * 150);
             }
         }
 
         function changeBg() {
-            const colors = ['#fff9e6', '#e6f7ff', '#f0ffe6', '#fce6ff', '#fff0f5'];
+            const colors = ['#fff9e6', '#e6f7ff', '#f0ffe6', '#fff0f5'];
             document.getElementById('anasayfa').style.background = colors[Math.floor(Math.random() * colors.length)];
         }
-
-        window.onclick = function() { document.getElementById("myDropdown").classList.remove("show"); }
+        
+        window.onclick = function() { 
+            document.getElementById("myDropdown").classList.remove("show"); 
+            document.getElementById("overlay").style.display = "none";
+        }
     </script>
 </body>
 </html>
-
