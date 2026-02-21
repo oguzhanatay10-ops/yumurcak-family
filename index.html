@@ -2,10 +2,9 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yumurcak Family - İnteraktif Dünya</title>
     <style>
-        /* Google Fonts */
+        /* Google Fonts'tan eğlenceli fontlar */
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
         body { margin: 0; padding: 0; font-family: 'Short Stack', cursive; overflow-x: hidden; }
@@ -17,19 +16,20 @@
             position: relative; transition: background 0.5s;
         }
 
+        /* TOMBUL VE EĞLENCELİ BAŞLIK */
         .poncik-header {
             background: linear-gradient(to right, #ffcc00, #ff99cc);
-            width: 100%; padding: 60px 0; text-align: center;
-            color: white; font-family: 'Fredoka One', cursive; font-size: clamp(50px, 8vw, 100px);
+            width: 100%; padding: 80px 0; text-align: center;
+            color: white; font-family: 'Fredoka One', cursive; font-size: 100px;
             letter-spacing: 5px; border-radius: 0 0 80px 80px;
             text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10; transition: 0.3s;
         }
         .poncik-header:hover { transform: scale(1.02); }
 
         .welcome-msg {
-            margin: 100px 20px 40px 20px; padding: 40px; max-width: 800px; text-align: center;
+            margin-top: 100px; padding: 40px; max-width: 800px; text-align: center;
             background: white; border: 8px dashed #ff99cc; border-radius: 50px;
-            color: #ff6699; font-size: clamp(20px, 5vw, 35px); font-weight: bold;
+            color: #ff6699; font-size: 35px; font-weight: bold;
             animation: float 3s infinite ease-in-out; z-index: 8;
         }
 
@@ -38,28 +38,23 @@
         /* ANİMASYONLU MENÜ */
         .nav-container { margin-top: -45px; position: relative; z-index: 1000; }
         .menu-btn { 
-            background: white; color: #ff6699; padding: 20px 50px; font-size: 28px;
+            background: white; color: #ff6699; padding: 25px 60px; font-size: 35px;
             font-family: 'Fredoka One', cursive; border: 6px solid #ffcc00; border-radius: 60px;
             cursor: pointer; box-shadow: 0 10px 0px #ffcc00; outline: none; transition: 0.3s;
         }
-        .menu-btn:active { transform: translateY(5px); box-shadow: 0 5px 0px #ffcc00; }
         
         .dropdown-content { 
-            display: block; position: absolute; background: white; min-width: 280px; border-radius: 30px;
+            display: block; position: absolute; background: white; min-width: 320px; border-radius: 30px;
             border: 5px solid #ff99cc; margin-top: 20px; left: 50%;
             transform: translateX(-50%) scaleY(0); transform-origin: top;
             opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden; pointer-events: none;
         }
         .dropdown-content.show { transform: translateX(-50%) scaleY(1); opacity: 1; pointer-events: auto; }
-        .dropdown-content a { 
-            font-size: 24px; padding: 20px; text-decoration: none; color: #444; 
-            display: block; transition: background 0.3s;
-        }
-        .dropdown-content a:hover { background: #fff0f5; color: #ff6699; }
+        .dropdown-content a { font-size: 30px; padding: 25px; text-decoration: none; color: #444; display: block; }
 
-        /* STICKERLAR */
-        .sticker { position: absolute; font-size: 60px; cursor: pointer; z-index: 5; animation: bounce-normal 2.5s infinite ease-in-out; user-select: none; }
+        /* STICKERLAR VE ÖZEL HAREKETLER */
+        .sticker { position: absolute; font-size: 80px; cursor: pointer; z-index: 5; animation: bounce-normal 2.5s infinite ease-in-out; }
         @keyframes bounce-normal { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         
         .wheel-spin { animation: spin-fast 0.6s infinite linear !important; }
@@ -68,23 +63,37 @@
         .rocket-fly-left { animation: launch-left 1.5s forwards ease-in !important; }
         @keyframes launch-left { 0% { transform: translate(0, 0); } 100% { transform: translate(-1200px, -500px); opacity: 0; } }
 
-        .candy-drop { position: fixed; top: -50px; font-size: 35px; z-index: 100; animation: fall 3s linear forwards; pointer-events: none; }
+        .candy-drop { position: fixed; top: -50px; font-size: 35px; z-index: 100; animation: fall 3s linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
 
         /* --- 2. MR. ERTUĞRUL SAYFASI --- */
         #ertugrul-sayfasi { background: #000; color: white; min-height: 100vh; display: none; text-align: center; padding-bottom: 100px; }
-        .ert-header { background: #111; padding: 60px; border-bottom: 8px solid red; color: red; font-size: clamp(40px, 8vw, 85px); font-weight: bold; }
-        .char-img { width: 90%; max-width: 450px; border-radius: 30px; margin: 50px auto; border: 5px solid red; display: block; }
-        .hikaye-container { max-width: 1000px; margin: 0 20px; padding: 40px; background: rgba(20, 20, 20, 0.9); border-radius: 50px; text-align: left; margin-left: auto; margin-right: auto; }
-        .hikaye-baslik { color: red; font-size: clamp(30px, 6vw, 55px); text-align: center; border-bottom: 2px solid red; margin-bottom: 30px; }
-        .hikaye-metni { font-size: clamp(18px, 4vw, 32px); color: #ddd; margin-bottom: 40px; line-height: 1.4; }
+        .ert-header { background: #111; padding: 60px; border-bottom: 8px solid red; color: red; font-size: 85px; font-weight: bold; }
+        .char-img { width: 450px; border-radius: 30px; margin: 50px auto; border: 5px solid red; display: block; }
+        .hikaye-container { max-width: 1000px; margin: 0 auto; padding: 50px; background: rgba(20, 20, 20, 0.9); border-radius: 50px; text-align: left; }
+        .hikaye-baslik { color: red; font-size: 55px; text-align: center; border-bottom: 2px solid red; }
+        .hikaye-metni { font-size: 32px; color: #ddd; margin-bottom: 40px; }
+
+        /* MÜZİK BUTONU STİLİ */
+        #music-toggle {
+            position: fixed; bottom: 20px; left: 20px; z-index: 9999;
+            background: white; border: 4px solid #ffcc00; border-radius: 50%;
+            width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
 
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="music-toggle" onclick="toggleMusic()">🔈</div>
+
     <div id="anasayfa">
         <div id="rainbow" class="sticker" style="top: 250px; left: 5%;" onclick="changeBg()">🌈</div>
-        <div id="star" class="sticker" style="top: 300px; right: 8%;" onclick="toggleStar(this)">⭐</div>
+        <div id="star" class="sticker" style="top: 300px; right: 8%;" onclick="this.innerText='✨'; setTimeout(()=>this.innerText='⭐',500)">⭐</div>
         <div id="wheel" class="sticker" style="bottom: 150px; left: 8%;" onclick="startWheel(this)">🎡</div>
         <div id="candy" class="sticker" style="bottom: 300px; right: 15%;" onclick="candyRain()">🍭</div>
         <div id="rocket" class="sticker" style="bottom: 80px; right: 5%;" onclick="launchRocket(this)">🚀</div>
@@ -105,85 +114,73 @@
 
     <div id="ertugrul-sayfasi">
         <div class="ert-header">MR. ERTUĞRUL</div>
-        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" alt="Mr. Ertuğrul" class="char-img">
+        <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img">
         <div class="hikaye-container">
             <div class="hikaye-baslik">Sayıların Efendisi</div>
             <p class="hikaye-metni">Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu...</p>
             <p class="hikaye-metni">Ertuğrul Bey'in en büyük hobisi, okulun uzun merdivenlerinden aşağı bakarken derin derin <b>düşünmektir</b>.</p>
             <p class="hikaye-metni">Gücünü ise tek bir kaynaktan alır: Her sabah içtiği dumanı üstünde, bol limonlu bir kase <b>Mercimek Çorbası</b>!</p>
         </div>
-        <button onclick="sayfaDegistir('anasayfa')" style="background: red; color: white; border: none; padding: 25px 60px; border-radius: 20px; cursor: pointer; font-size: 30px; margin-top: 50px; font-family: 'Fredoka One';">← Geri Dön</button>
+        <button onclick="sayfaDegistir('anasayfa')" style="background: red; color: white; border: none; padding: 25px 60px; border-radius: 20px; cursor: pointer; font-size: 30px; margin-top: 50px;">← Geri Dön</button>
     </div>
 
     <script>
-        // Menü Açma/Kapama
-        function toggleMenu(e) { 
-            e.stopPropagation(); 
-            document.getElementById("myDropdown").classList.toggle("show"); 
-        }
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('music-toggle');
 
-        // Menü dışına tıklandığında kapatma
-        window.onclick = function(event) {
-            if (!event.target.matches('.menu-btn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
+        // Müzik kontrol fonksiyonu
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.innerText = '🔊';
+            } else {
+                bgMusic.pause();
+                musicBtn.innerText = '🔈';
             }
         }
 
-        // Arkaplan Değiştirme
+        // İlk etkileşimde müziği başlat
+        document.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.innerText = '🔊';
+            }
+        }, { once: true });
+
+        function toggleMenu(e) { e.stopPropagation(); document.getElementById("myDropdown").classList.toggle("show"); }
         function changeBg() {
             const colors = ['#fff9e6', '#e6f7ff', '#f0ffe6', '#fce6ff', '#ffe6e6'];
             document.getElementById('anasayfa').style.background = colors[Math.floor(Math.random() * colors.length)];
         }
-
-        // Yıldız Efekti
-        function toggleStar(el) {
-            el.innerText = '✨';
-            setTimeout(() => { el.innerText = '⭐'; }, 500);
-        }
-
-        // Çarkı Döndür
-        function startWheel(el) { 
-            el.classList.add('wheel-spin'); 
-            setTimeout(() => { el.classList.remove('wheel-spin'); }, 3000); 
-        }
-
-        // Şeker Yağmuru
+        function startWheel(el) { el.classList.add('wheel-spin'); setTimeout(() => { el.classList.remove('wheel-spin'); }, 3000); }
         function candyRain() {
             for(let i=0; i<30; i++) {
                 setTimeout(() => {
                     const candy = document.createElement('div');
-                    candy.innerText = '🍭'; 
-                    candy.className = 'candy-drop';
-                    candy.style.left = Math.random() * 95 + 'vw';
+                    candy.innerText = '🍭'; candy.className = 'candy-drop';
+                    candy.style.left = Math.random() * 100 + 'vw';
                     document.body.appendChild(candy);
                     setTimeout(() => candy.remove(), 3000);
                 }, i * 100);
             }
         }
-
-        // Roket Fırlatma
-        function launchRocket(el) { 
-            el.classList.add('rocket-fly-left'); 
-            setTimeout(() => { el.classList.remove('rocket-fly-left'); }, 2000); 
-        }
-
-        // Sayfa Değiştirme Mantığı
+        function launchRocket(el) { el.classList.add('rocket-fly-left'); setTimeout(() => { el.classList.remove('rocket-fly-left'); }, 2000); }
         function sayfaDegistir(sayfaAdi) {
             if(sayfaAdi === 'ertugrul') {
                 document.getElementById('anasayfa').style.display = 'none';
                 document.getElementById('ertugrul-sayfasi').style.display = 'block';
-                window.scrollTo(0,0);
             } else {
                 document.getElementById('anasayfa').style.display = 'flex';
                 document.getElementById('ertugrul-sayfasi').style.display = 'none';
             }
             document.getElementById("myDropdown").classList.remove("show");
+        }
+
+        // Dışarı tıklanınca menüyü kapat
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-btn')) {
+                document.getElementById("myDropdown").classList.remove("show");
+            }
         }
     </script>
 </body>
