@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Yumurcak Family - Resmi Web Sitesi</title>
+    <title>Yumurcak Family - Orijinal Düzen</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
@@ -47,16 +47,16 @@
         .dropdown-content.show { transform: translateX(-50%) scaleY(1); opacity: 1; pointer-events: auto; }
         .dropdown-content a { font-size: 26px; padding: 15px 20px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #f0f0f0; }
 
-        /* STICKERLAR */
+        /* STICKERLAR (ORİJİNAL KONUMLAR) */
         .sticker { 
             position: absolute; font-size: 80px; cursor: pointer; z-index: 5; 
             animation: bounce 2.5s infinite ease-in-out; 
             display: inline-block; transform-origin: center center;
         }
         #rainbow { top: 280px; left: 14%; }
-        #wheel { bottom: 100px; left: 19%; }
+        #wheel { bottom: 100px; left: 19%; } /* Capybaraa'nın yeri */
         #candy { bottom: 270px; right: 15%; }
-        #rocket { bottom: 80px; right: 19%; }
+        #rocket { bottom: 80px; right: 19%; } /* Mr. Ertuğrul'un yeri */
         
         @keyframes bounce { 0%, 100% { margin-top: 0; } 50% { margin-top: -20px; } }
 
@@ -72,7 +72,7 @@
 
         .welcome-msg { margin-top: 60px; font-size: 28px; font-weight: bold; color: #ff6699; text-align: center; max-width: 800px; padding: 0 20px; }
 
-        /* KARAKTER SAYFALARI (HİKAYELER TAM HALİYLE BURADA) */
+        /* KARAKTER SAYFALARI (TAM HİKAYELER) */
         .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .char-img { width: 400px; border-radius: 40px; margin: 30px auto; display: block; }
@@ -86,6 +86,10 @@
         #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
         .capy-header { background: #ffb74d; padding: 40px; border-bottom: 8px solid #f57c00; color: white; font-size: 55px; font-family: 'Fredoka One', cursive; }
         .capy-box { background: white; border: 5px dashed #ffb74d; }
+
+        #lida-sayfasi { background: #e0f7fa; color: #006064; }
+        .lida-header { background: #4dd0e1; padding: 40px; border-bottom: 8px solid #00acc1; color: white; font-size: 55px; font-family: 'Fredoka One', cursive; }
+        .lida-box { background: white; border: 5px solid #4dd0e1; }
 
         .back-btn { border: none; padding: 15px 45px; border-radius: 20px; cursor: pointer; font-size: 22px; margin-top: 30px; color: white; font-family: 'Fredoka One', cursive; }
 
@@ -113,6 +117,7 @@
             <div id="myDropdown" class="dropdown-content">
                 <a href="javascript:void(0)" onclick="sayfaDegistir('ertugrul')">🔥 Mr. Ertuğrul</a>
                 <a href="javascript:void(0)" onclick="sayfaDegistir('capybaraa')">🌿 Capybaraa</a>
+                <a href="javascript:void(0)" onclick="sayfaDegistir('lida')">🐦 Lida (Birdy)</a>
             </div>
         </div>
         <div class="welcome-msg">Merhaba işte burası benim eğlenceli renkli dünyam sende katılmak istermisin??</div>
@@ -145,12 +150,22 @@
         <button class="back-btn" style="background: #f57c00;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
 
+    <div id="lida-sayfasi" class="page">
+        <div class="lida-header">LİDA (BIRDY)</div>
+        <img src="https://i.ibb.co/ccbj2w09/Gemini-Generated-mage-54xlee54xlee54xl.png" class="char-img" style="border: 8px solid #4dd0e1;">
+        <div class="hikaye-box lida-box">
+            <p>Lida, Yumurcak Family'nin en zeki ve çok dilli üyesidir. O, **İngilizce ve Farsça bilen nadir bir kuştur.** 🐦✨</p>
+            <p>Kanat çırparken havada süzülen bir tüy gibi hafif olsa da, zihni kütüphaneler kadar doludur. İngilizce şarkılar söyleyerek sabahları herkesi uyandırır, akşamları ise Farsça şiirler mırıldanarak gökyüzünü selamlar.</p>
+        </div>
+        <button class="back-btn" style="background: #00acc1;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
+    </div>
+
     <script>
         let isMuted = false;
         let activePage = 'anasayfa';
         let hasInteracted = false;
         const music = document.getElementById('music-anasayfa');
-        music.playbackRate = 0.7; // Daha da yavaş olması için düşürüldü
+        music.playbackRate = 0.7;
 
         function changeBg(e) {
             e.stopPropagation();
@@ -158,6 +173,7 @@
             document.getElementById('anasayfa').style.background = colors[Math.floor(Math.random() * colors.length)];
         }
 
+        // DÖNME DOLAP (0.8s Dönüş)
         function startWheel(el, e) {
             e.stopPropagation();
             el.style.animation = "none";
@@ -183,6 +199,7 @@
             }
         }
 
+        // ROKET (Yatık ve Ortalama Hızla Uçuş)
         function launchRocket(el, e) {
             e.stopPropagation();
             el.style.animation = "none";
@@ -209,26 +226,32 @@
             if (activePage === 'anasayfa') music.play().catch(() => {});
             else music.pause();
         }
+
         function sayfaDegistir(sayfa) {
             activePage = sayfa;
             document.getElementById('anasayfa').style.display = 'none';
             document.getElementById('ertugrul-sayfasi').style.display = 'none';
             document.getElementById('capybaraa-sayfasi').style.display = 'none';
+            document.getElementById('lida-sayfasi').style.display = 'none';
+
             if (sayfa === 'ertugrul') document.getElementById('ertugrul-sayfasi').style.display = 'block';
             else if (sayfa === 'capybaraa') document.getElementById('capybaraa-sayfasi').style.display = 'block';
+            else if (sayfa === 'lida') document.getElementById('lida-sayfasi').style.display = 'block';
             else document.getElementById('anasayfa').style.display = 'flex';
+
             if (hasInteracted) checkAndPlay();
             window.scrollTo(0,0);
         }
+
         function toggleMute(e) {
             e.stopPropagation();
             isMuted = !isMuted;
             document.getElementById('audio-control').innerText = isMuted ? '🔇' : '🔊';
             if (isMuted) music.pause(); else checkAndPlay();
         }
+
         function toggleMenu(e) { e.stopPropagation(); document.getElementById("myDropdown").classList.toggle("show"); }
         window.onclick = function() { document.getElementById("myDropdown").classList.remove("show"); }
     </script>
 </body>
 </html>
-
