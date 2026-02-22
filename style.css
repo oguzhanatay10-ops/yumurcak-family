@@ -55,7 +55,7 @@ body {
 
 /* ANA SAYFA METNİ (2 SATIR VE AŞAĞIDA) */
 .welcome-msg {
-    margin-top: 130px; /* Metni daha aşağıya çektim */
+    margin-top: 180px; /* Metni daha aşağıya çektim */
     font-size: 32px; 
     color: #ff6699; 
     font-weight: bold; 
