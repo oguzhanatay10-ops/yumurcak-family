@@ -4,96 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yumurcak Family - Tam Kadro</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
-
-        body { margin: 0; padding: 0; font-family: 'Short Stack', cursive; overflow-x: hidden; scroll-behavior: smooth; }
-
-        /* SES KONTROLÜ */
-        #audio-control {
-            position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px;
-            background: white; border: 4px solid #ff99cc; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 30px; cursor: pointer; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        /* ANASAYFA */
-        #anasayfa {
-            background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
-            min-height: 100vh; display: flex; flex-direction: column; align-items: center;
-            position: relative; transition: background 0.8s ease;
-        }
-
-        .poncik-header {
-            background: linear-gradient(to right, #ffcc00, #ff99cc);
-            width: 100%; padding: 80px 0; text-align: center; color: white; 
-            font-family: 'Fredoka One', cursive; font-size: 80px; 
-            border-radius: 0 0 80px 80px; text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10;
-        }
-
-        .nav-container { margin-top: -45px; position: relative; z-index: 1000; }
-        .menu-btn { 
-            background: white; color: #ff6699; padding: 20px 50px; font-size: 30px;
-            font-family: 'Fredoka One', cursive; border: 6px solid #ffcc00; border-radius: 60px;
-            cursor: pointer; box-shadow: 0 10px 0px #ffcc00; transition: 0.3s;
-        }
-
-        .dropdown-content { 
-            display: block; position: absolute; background: white; min-width: 300px; border-radius: 30px;
-            border: 5px solid #ff99cc; margin-top: 20px; left: 50%;
-            transform: translateX(-50%) scaleY(0); transform-origin: top;
-            opacity: 0; transition: all 0.4s; overflow: hidden; pointer-events: none;
-        }
-        .dropdown-content.show { transform: translateX(-50%) scaleY(1); opacity: 1; pointer-events: auto; }
-        .dropdown-content a { font-size: 26px; padding: 15px 20px; text-decoration: none; color: #444; display: block; border-bottom: 1px solid #f0f0f0; }
-
-        /* STICKERLAR */
-        .sticker { 
-            position: absolute; font-size: 80px; cursor: pointer; z-index: 5; 
-            animation: bounce 2.5s infinite ease-in-out; 
-            display: inline-block; transform-origin: center center;
-        }
-        #rainbow { top: 280px; left: 14%; }
-        #wheel { bottom: 100px; left: 19%; }
-        #candy { bottom: 270px; right: 15%; }
-        #rocket { bottom: 80px; right: 19%; }
-        
-        @keyframes bounce { 0%, 100% { margin-top: 0; } 50% { margin-top: -20px; } }
-
-        /* KARAKTER SAYFALARI */
-        .page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .char-img { width: 400px; border-radius: 40px; margin: 30px auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .hikaye-box { max-width: 750px; margin: 0 auto; padding: 30px; border-radius: 40px; text-align: left; font-size: 20px; line-height: 1.6; }
-
-        /* MR. ERTUĞRUL STİL */
-        #ertugrul-sayfasi { background: #000; color: white; }
-        .ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 55px; font-family: 'Fredoka One'; }
-        .ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
-        .gizem-ani { margin-top: 30px; border-top: 1px dashed red; padding-top: 20px; color: #ff6666; font-style: italic; }
-
-        /* CAPYBARAA STİL */
-        #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
-        .capy-header { background: #ffb74d; padding: 40px; border-bottom: 8px solid #f57c00; color: white; font-size: 55px; font-family: 'Fredoka One'; }
-        .capy-box { background: white; border: 5px dashed #ffb74d; }
-
-        /* LİDA STİL */
-        #lida-sayfasi { background: #e0f7fa; color: #006064; }
-        .lida-header { background: #4dd0e1; padding: 40px; border-bottom: 8px solid #00acc1; color: white; font-size: 55px; font-family: 'Fredoka One'; }
-        .lida-box { background: white; border: 5px solid #4dd0e1; }
-
-        /* PROF. KURBAĞA STİL */
-        #kurbaga-sayfasi { background: #e8f5e9; color: #1b5e20; }
-        .kurbaga-header { background: #66bb6a; padding: 40px; border-bottom: 8px solid #388e3c; color: white; font-size: 55px; font-family: 'Fredoka One'; }
-        .kurbaga-box { background: white; border: 5px solid #66bb6a; }
-
-        .back-btn { border: none; padding: 15px 45px; border-radius: 20px; cursor: pointer; font-size: 22px; margin-top: 30px; color: white; font-family: 'Fredoka One'; }
-
-        @media (max-width: 768px) {
-            .poncik-header { font-size: 45px; padding: 60px 15px; }
-            .char-img { width: 85%; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body onclick="handleFirstClick()">
 
@@ -107,16 +18,21 @@
         <div id="rocket" class="sticker" onclick="launchRocket(this, event)">🚀</div>
         
         <div class="poncik-header">Yumurcak Family</div>
+
         <div class="nav-container">
-            <button class="menu-btn" onclick="toggleMenu(event)">Karakterler ▾</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="javascript:void(0)" onclick="sayfaDegistir('ertugrul')">🔥 Mr. Ertuğrul</a>
-                <a href="javascript:void(0)" onclick="sayfaDegistir('capybaraa')">🌿 Capybaraa</a>
-                <a href="javascript:void(0)" onclick="sayfaDegistir('lida')">🐦 Lida (Birdy)</a>
-                <a href="javascript:void(0)" onclick="sayfaDegistir('kurbaga')">🐸 Prof. Kurbağa</a>
+            <div style="position:relative;">
+                <button class="menu-btn" onclick="toggleMenu(event)">Karakterler ▾</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('ertugrul')">🔥 Mr. Ertuğrul</a>
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('capybaraa')">🌿 Capybaraa</a>
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('lida')">🐦 Lida (Birdy)</a>
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('kurbaga')">🐸 Prof. Kurbağa</a>
+                </div>
             </div>
+            <a href="games.html" class="menu-btn" style="text-decoration:none;">Games</a>
         </div>
-        <div class="welcome-msg" style="margin-top:60px; font-size:28px; color:#ff6699; font-weight:bold; text-align:center; padding:0 20px;">Merhaba işte burası benim eğlenceli renkli dünyam sende katılmak istermisin??</div>
+
+        <div class="welcome-msg">Merhaba işte burası benim eğlenceli renkli dünyam sende katılmak istermisin??</div>
     </div>
 
     <div id="ertugrul-sayfasi" class="page">
@@ -124,12 +40,11 @@
         <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img" style="border: 6px solid red;">
         <div class="hikaye-box ert-box">
             <b style="color:red; display:block; text-align:center; font-size:1.2em; margin-bottom:10px;">Sayıların Efendisi</b>
-            <p>Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu... O, evrenin en büyük sırrını, yani kayıp <b>"0" (Sıfır)</b> sayısının gerçek gücünü keşfettiğinde değişti.</p>
-            <p>Ertuğrul Bey'in en büyük hobisi, merdivenlerden aşağı bakarken derin derin <b>düşünmektir</b>. Sert görünüşünün altında aslında <b>çok eğlenceli</b> bir ruh yatar. Gücünü ise her sabah içtiği bol limonlu <b>Mercimek Çorbası</b>'ndan alır!</p>
+            <p>Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu...</p>
+            <p>Ertuğrul Bey'in en büyük hobisi, merdivenlerden aşağı bakarken derin derin <b>düşünmektir</b>. Gücünü ise her sabah içtiği bol limonlu <b>Mercimek Çorbası</b>'ndan alır!</p>
             <div class="gizem-ani">
                 <b>Karanlık Bir Anı:</b> Bir gece yağmurun altında merdivenlerde otururken, rüzgarın fısıltısı ona şunu sordu: 
                 <br><i>"Sıfır yoksa, senin varlığın neyi çarpar?"</i> 
-                <br>O günden beri Ertuğrul Bey'in gözlerindeki o gizemli parıltı hiç sönmedi. Gerçekten de, her şey sıfıra mı bağlıydı?
             </div>
         </div>
         <button class="back-btn" style="background: red;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
@@ -140,8 +55,7 @@
         <img src="https://i.ibb.co/27CN1Hby/Gemini-Generated-mage-d1aw51d1aw51d1aw.png" class="char-img" style="border: 8px solid #ffb74d;">
         <div class="hikaye-box capy-box">
             <p>O, Yumurcak dünyasının en bilge ve sakin üyesi! 🌿</p>
-            <p><b>Capybaraa</b>, portakal banyosu yaparken Mr. Ertuğrul'un en karmaşık formüllerini not alması için ona o meşhur <b>Siyah Rotring</b> kalemini uzatır. 🖋️</p>
-            <p>Onun tüyleri huzur verir, bakışları stresi yok eder. En büyük gücü <b>"Sonsuz Huzur"</b>dur. Capybaraa yanınızdayken en zor matematik problemleri bile çocuk oyuncağına dönüşür!</p>
+            <p><b>Capybaraa</b>, Mr. Ertuğrul'un en karmaşık formüllerini not alması için ona o meşhur <b>Siyah Rotring</b> kalemini uzatır. Onun en büyük gücü <b>"Sonsuz Huzur"</b>dur.</p>
         </div>
         <button class="back-btn" style="background: #f57c00;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
@@ -152,8 +66,7 @@
         <div class="hikaye-box lida-box">
             <b style="color:#00838f; display:block; text-align:center; font-size:1.2em; margin-bottom:10px;">Dillerin ve Gökyüzünün Elçisi</b>
             <p>Lida, Yumurcak Family'nin en zeki ve çok dilli üyesidir. O, **İngilizce ve Farsça bilen nadir bir kuştur.** 🐦✨</p>
-            <p>Kanat çırparken havada süzülen bir tüy gibi hafif olsa da, zihni kütüphaneler kadar doludur. İngilizce şarkılar söyleyerek sabahları herkesi uyandırır, akşamları ise Farsça şiirler mırıldanarak gökyüzünü selamlar.</p>
-            <p>Elindeki kalemi ve üzerinde durduğu antik kitabı ile Lida, dillerin arasındaki köprüyü kurar. Mr. Ertuğrul'un matematik denklemlerini farklı dillere çevirerek tüm evrene yayar!</p>
+            <p>Mr. Ertuğrul'un matematik denklemlerini farklı dillere çevirerek tüm evrene yayar!</p>
         </div>
         <button class="back-btn" style="background: #00acc1;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
@@ -164,68 +77,11 @@
         <div class="hikaye-box kurbaga-box">
             <b style="color:#2e7d32; display:block; text-align:center; font-size:1.4em; margin-bottom:15px;">Kuantumun ve Sevginin Fizikçisi</b>
             <p>Yumurcak Koleji'nin en disiplinli ama en tatlı öğretmenlerinden biriyle tanışın: **Prof. Kurbağa!** 🐸</p>
-            <p>Kendisi uzman bir **Fizik Öğretmenidir** ve sınıfa girdiğinde tahtaya sadece formüller yazmaz, evrenin neşesini saçar. Onun en büyük yeteneği, **öğrencilerinin konuyu anlayıp anlamadığını sadece gözlerine bakarak anlamasıdır.** 👀✨</p>
-            <p>Eğer bir öğrencinin kafasında minik bir soru işareti görürse, hemen cebinden hayali bir atom çıkarır ve o konuyu en eğlenceli deneylerle anlatmaya başlar. Kafasındaki fiyonku, aslında yerçekimine meydan okuyan özel bir tasarım! Prof. Kurbağa için fizik sadece kurallar değil, bir yaşam biçimidir.</p>
+            <p>Kendisi uzman bir **Fizik Öğretmenidir**. En büyük yeteneği, öğrencilerinin konuyu anlayıp anlamadığını sadece gözlerine bakarak anlamasıdır.</p>
         </div>
         <button class="back-btn" style="background: #388e3c;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
 
-    <script>
-        let isMuted = false;
-        let activePage = 'anasayfa';
-        let hasInteracted = false;
-        const music = document.getElementById('music-anasayfa');
-        music.playbackRate = 0.7;
-
-        function sayfaDegistir(sayfa) {
-            activePage = sayfa;
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            document.getElementById('anasayfa').style.display = 'none';
-            if (sayfa === 'anasayfa') document.getElementById('anasayfa').style.display = 'flex';
-            else document.getElementById(sayfa + '-sayfasi').style.display = 'block';
-            if (hasInteracted && !isMuted) { if (sayfa === 'anasayfa') music.play(); else music.pause(); }
-            window.scrollTo(0,0);
-        }
-
-        function startWheel(el, e) {
-            e.stopPropagation();
-            el.style.transition = "transform 0.8s ease-in-out";
-            el.style.transform = "rotate(360deg)";
-            setTimeout(() => { el.style.transition = "none"; el.style.transform = "rotate(0deg)"; }, 800);
-        }
-
-        function launchRocket(el, e) {
-            e.stopPropagation();
-            el.style.transform = "rotate(-45deg)";
-            setTimeout(() => {
-                el.style.transition = "transform 1.5s ease-in-out, opacity 1.5s";
-                el.style.transform = "translate(-100vw, -100vh) rotate(-45deg)";
-                el.style.opacity = "0";
-                setTimeout(() => { el.style.transition = "none"; el.style.transform = "translate(0,0) rotate(0deg)"; el.style.opacity = "1"; }, 1600);
-            }, 400);
-        }
-
-        function candyRain(e) {
-            e.stopPropagation();
-            for (let i = 0; i < 30; i++) {
-                let candy = document.createElement("div");
-                candy.innerText = "🍭"; candy.style.position = "fixed"; candy.style.top = "-50px";
-                candy.style.left = Math.random() * 100 + "vw"; candy.style.fontSize = "50px";
-                candy.style.transition = "transform 3s linear"; document.body.appendChild(candy);
-                setTimeout(() => { candy.style.transform = "translateY(110vh) rotate(360deg)"; }, 50);
-                setTimeout(() => candy.remove(), 3100);
-            }
-        }
-
-        function changeBg(e) { e.stopPropagation(); document.getElementById('anasayfa').style.background = `hsl(${Math.random() * 360}, 100%, 97%)`; }
-        function handleFirstClick() { if (!hasInteracted) { hasInteracted = true; if(!isMuted) music.play(); } }
-        function toggleMute(e) {
-            e.stopPropagation(); isMuted = !isMuted;
-            document.getElementById('audio-control').innerText = isMuted ? '🔇' : '🔊';
-            if (isMuted) music.pause(); else if(activePage === 'anasayfa') music.play();
-        }
-        function toggleMenu(e) { e.stopPropagation(); document.getElementById("myDropdown").classList.toggle("show"); }
-        window.onclick = function() { document.getElementById("myDropdown").classList.remove("show"); }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
