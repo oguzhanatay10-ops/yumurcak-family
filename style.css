@@ -53,21 +53,7 @@ body {
     z-index: 10;
 }
 
-/* ANA SAYFA METNİ (2 SATIR VE AŞAĞIDA) */
-.welcome-msg {
-    margin-top: 180px; /* Metni daha aşağıya çektim */
-    font-size: 32px; 
-    color: #ff6699; 
-    font-weight: bold; 
-    text-align: center; 
-    padding: 0 20px;
-    line-height: 1.6; /* İki satırın arasını açtım */
-    font-family: 'Fredoka One', cursive;
-    z-index: 10;
-    max-width: 800px;
-}
-
-/* BUTONLAR VE NAVİGASYON */
+/* NAVİGASYON (BUTONLAR) */
 .nav-container { 
     margin-top: -45px; 
     position: relative; 
@@ -94,6 +80,7 @@ body {
     transform: translateY(8px);
 }
 
+/* DROPDOWN (MENÜ) */
 .dropdown-content { 
     display: block; 
     position: absolute; 
@@ -126,7 +113,21 @@ body {
     border-bottom: 1px solid #f0f0f0; 
 }
 
-/* EMOJİLER */
+/* ANA SAYFA METNİ */
+.welcome-msg {
+    margin-top: 200px; /* Bilgisayarda da aşağıda dursun */
+    font-size: 32px; 
+    color: #ff6699; 
+    font-weight: bold; 
+    text-align: center; 
+    padding: 0 20px;
+    line-height: 1.6;
+    font-family: 'Fredoka One', cursive;
+    z-index: 10;
+    max-width: 800px;
+}
+
+/* EMOJİLER (STİCKERS) */
 .sticker { 
     position: absolute; 
     font-size: 80px; 
@@ -134,20 +135,52 @@ body {
     z-index: 5; 
     animation: bounce 2.5s infinite ease-in-out; 
     display: inline-block; 
-    transform-origin: center center;
 }
 
-#rainbow { top: 280px; left: 14%; font-size: 100px; } 
-#candy   { top: 400px; right: 12%; font-size: 80px; } 
-#wheel   { bottom: 120px; left: 20%; font-size: 55px; } 
-#rocket  { bottom: 80px; right: 20%; font-size: 90px; } 
+#rainbow { top: 350px; left: 10%; } 
+#candy   { top: 350px; right: 10%; } 
+#wheel   { bottom: 100px; left: 15%; } 
+#rocket  { bottom: 100px; right: 15%; } 
 
 @keyframes bounce { 
     0%, 100% { transform: translateY(0); } 
     50% { transform: translateY(-20px); } 
 }
 
-/* KARAKTER SAYFALARI GENEL STİLLER */
+/* TELEFONLAR İÇİN ÖZEL DÜZEN (Senin İstediğin) */
+@media (max-width: 768px) {
+    .poncik-header { font-size: 45px; padding: 60px 15px; }
+
+    /* Butonlar Yan Yana ve Küçük */
+    .nav-container {
+        flex-direction: row !important;
+        gap: 10px !important;
+        margin-top: -30px !important;
+    }
+
+    .menu-btn {
+        padding: 10px 15px !important;
+        font-size: 16px !important;
+        border-width: 4px !important;
+        box-shadow: 0 4px 0px #ffcc00 !important;
+    }
+
+    /* Metin Ortada ve Aşağıda */
+    .welcome-msg {
+        margin-top: 180px !important;
+        font-size: 20px !important;
+        padding: 0 60px !important; /* Emojilere yer açar */
+    }
+
+    /* Emojiler Dört Köşede */
+    .sticker { font-size: 45px !important; }
+    #rainbow { top: 220px !important; left: 5% !important; }  /* Sol Üst */
+    #candy   { top: 220px !important; right: 5% !important; } /* Sağ Üst */
+    #wheel   { bottom: 60px !important; left: 10% !important; } /* Sol Alt */
+    #rocket  { bottom: 60px !important; right: 10% !important; }/* Sağ Alt */
+}
+
+/* KARAKTER SAYFALARI */
 .page { 
     display: none; 
     min-height: 100vh; 
@@ -159,57 +192,46 @@ body {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .char-img { 
-    width: 400px; 
+    width: 350px; 
     border-radius: 40px; 
     margin: 30px auto; 
     display: block; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
 }
 
-/* HİKAYE KUTUSU (EKSİKLERİ GÖSTEREN KISIM) */
 .hikaye-box { 
     max-width: 750px; 
     margin: 20px auto; 
     padding: 30px; 
     border-radius: 40px; 
     text-align: left; 
-    font-size: 22px; 
+    font-size: 20px; 
     line-height: 1.6; 
-    background: white; /* Varsayılan arka plan */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-/* KARAKTER ÖZEL RENKLERİ VE SAYFA DÜZENLERİ */
+/* KARAKTER RENKLERİ */
 #ertugrul-sayfasi { background: #000; color: white; }
-.ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 55px; font-family: 'Fredoka One'; }
-.ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; color: white; }
+.ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 45px; font-family: 'Fredoka One'; }
+.ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
 
 #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
-.capy-header { background: #ffb74d; padding: 40px; border-bottom: 8px solid #f57c00; color: white; font-size: 55px; font-family: 'Fredoka One'; }
+.capy-header { background: #ffb74d; padding: 40px; border-bottom: 8px solid #f57c00; color: white; font-size: 45px; font-family: 'Fredoka One'; }
 .capy-box { border: 5px solid #ffb74d; }
 
 #lida-sayfasi { background: #e0f7fa; color: #006064; }
-.lida-header { background: #4dd0e1; padding: 40px; border-bottom: 8px solid #00acc1; color: white; font-size: 55px; font-family: 'Fredoka One'; }
+.lida-header { background: #4dd0e1; padding: 40px; border-bottom: 8px solid #00acc1; color: white; font-size: 45px; font-family: 'Fredoka One'; }
 .lida-box { border: 5px solid #4dd0e1; }
 
 #kurbaga-sayfasi { background: #f1f8e9; color: #1b5e20; }
-.kurbaga-header { background: #81c784; padding: 40px; border-bottom: 8px solid #388e3c; color: white; font-size: 55px; font-family: 'Fredoka One'; }
+.kurbaga-header { background: #81c784; padding: 40px; border-bottom: 8px solid #388e3c; color: white; font-size: 45px; font-family: 'Fredoka One'; }
 .kurbaga-box { border: 5px solid #81c784; }
 
 .back-btn { 
     border: none; 
-    padding: 15px 45px; 
+    padding: 15px 40px; 
     border-radius: 20px; 
     cursor: pointer; 
-    font-size: 22px; 
+    font-size: 20px; 
     margin-top: 30px; 
     color: white; 
-    font-family: 'Fredoka One', cursive; 
-}
-
-/* MOBİL UYUMLULUK */
-@media (max-width: 768px) {
-    .poncik-header { font-size: 45px; padding: 60px 15px; }
-    .nav-container { flex-direction: column; gap: 40px; }
-    .char-img { width: 80%; }
+    font-family: 'Fredoka One'; 
 }
