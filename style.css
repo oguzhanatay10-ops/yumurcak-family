@@ -2,14 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
 /* --- 1. GENEL AYARLAR --- */
+body {/* style.css en üst kısım */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Elemanların taşmasını önler */
+}
+
 body { 
-    margin: 0; 
-    padding: 0; 
+    margin: 0 !important; 
+    padding: 0 !important; 
     font-family: 'Short Stack', cursive; 
     overflow-x: hidden; 
     scroll-behavior: smooth; 
+    border: none !important; /* Varsa hayalet çerçeveleri siler */
 }
-
 /* Sayfaların başlangıçta gizli olması (Beyaz ekranı çözer) */
 .page { 
     display: none; 
