@@ -1,10 +1,6 @@
 /* script.js */
 
-let isMuted = false;
 let activePage = 'anasayfa';
-let hasInteracted = false;
-const music = document.getElementById('music-anasayfa');
-music.playbackRate = 0.7;
 
 // SAYFA DEĞİŞTİRME FONKSİYONU
 function sayfaDegistir(sayfa) {
@@ -16,18 +12,19 @@ function sayfaDegistir(sayfa) {
     // İstenen sayfayı göster
     if (sayfa === 'anasayfa') {
         document.getElementById('anasayfa').style.display = 'flex';
-        if (hasInteracted && !isMuted) music.play();
     } else {
         const pElement = document.getElementById(sayfa + '-sayfasi');
         if(pElement) pElement.style.display = 'block';
-        music.pause(); // Karakter sayfasında müziği durdurur (isteğe bağlı)
     }
+    
+    // Menüyü otomatik kapat
+    document.getElementById("myDropdown").classList.remove("show");
     window.scrollTo(0,0);
 }
 
-// ROKET FIRLATMA (Sağ Alt)
+// ROKET FIRLATMA (Sağ Alt - Roket emojisine eklenebilir)
 function launchRocket(el, e) {
-    e.stopPropagation();
+    if(e) e.stopPropagation();
     el.style.transform = "rotate(-45deg)";
     setTimeout(() => {
         el.style.transition = "transform 1.5s ease-in-out, opacity 1.5s";
@@ -41,9 +38,9 @@ function launchRocket(el, e) {
     }, 400);
 }
 
-// ŞEKER YAĞMURU (Sağ Orta)
+// ŞEKER YAĞMURU (Sağ Orta - Lolipop emojisine tıklandığında)
 function candyRain(e) {
-    e.stopPropagation();
+    if(e) e.stopPropagation();
     for (let i = 0; i < 30; i++) {
         let candy = document.createElement("div");
         candy.innerText = "🍭"; 
@@ -59,9 +56,9 @@ function candyRain(e) {
     }
 }
 
-// DÖNME DOLAP DÖNDÜRME (Sol Alt)
+// DÖNME DOLAP DÖNDÜRME (Sol Alt -🎡 emojisi için)
 function startWheel(el, e) {
-    e.stopPropagation();
+    if(e) e.stopPropagation();
     el.style.transition = "transform 0.8s ease-in-out";
     el.style.transform = "rotate(360deg)";
     setTimeout(() => { 
@@ -70,36 +67,23 @@ function startWheel(el, e) {
     }, 800);
 }
 
-// ARKA PLAN DEĞİŞTİRME (Sol Üst - Gökkuşağı)
+// ARKA PLAN DEĞİŞTİRME (Sol Üst - 🌈 emojisi için)
 function changeBg(e) { 
-    e.stopPropagation(); 
+    if(e) e.stopPropagation(); 
     const randomColor = `hsl(${Math.random() * 360}, 100%, 97%)`;
     document.getElementById('anasayfa').style.background = randomColor; 
 }
 
-// SES KONTROLLERİ
-function handleFirstClick() { 
-    if (!hasInteracted) { 
-        hasInteracted = true; 
-        if(!isMuted) music.play(); 
-    } 
-}
-
-function toggleMute(e) {
-    e.stopPropagation(); 
-    isMuted = !isMuted;
-    document.getElementById('audio-control').innerText = isMuted ? '🔇' : '🔊';
-    if (isMuted) music.pause(); 
-    else if(activePage === 'anasayfa') music.play();
-}
-
 // MENÜ AÇMA/KAPAMA
 function toggleMenu(e) { 
-    e.stopPropagation(); 
+    if(e) e.stopPropagation(); 
     document.getElementById("myDropdown").classList.toggle("show"); 
 }
 
 // Ekranda herhangi bir yere basınca menüyü kapat
 window.onclick = function() { 
-    document.getElementById("myDropdown").classList.remove("show"); 
+    const dropdown = document.getElementById("myDropdown");
+    if (dropdown && dropdown.classList.contains('show')) {
+        dropdown.classList.remove("show"); 
+    }
 }
