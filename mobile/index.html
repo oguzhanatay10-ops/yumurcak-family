@@ -28,10 +28,14 @@
             margin-bottom: 5px;
             display: block;
         }
-        h1 { 
-            color: #2d3436; 
-            font-size: 28px; 
-            margin: 0 0 10px 0; /* Başlık boşluklarını sıfırladım */
+        h1 h1 { 
+    color: #2d3436; 
+    font-size: 28px; 
+    /* Buradaki eksi değer yazıyı yukarı çeker. 
+       -20px yaparsan daha yukarı, -50px yaparsan en tepeye çıkar. */
+    margin-top: -30px; 
+    margin-bottom: 10px;
+}/* Başlık boşluklarını sıfırladım */
         }
         p { 
             color: #636e72; 
