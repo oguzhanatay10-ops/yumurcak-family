@@ -115,7 +115,7 @@ body {
 
 /* ANA SAYFA METNİ */
 .welcome-msg {
-    margin-top: 200px; /* Bilgisayarda da aşağıda dursun */
+    margin-top: 200px; 
     font-size: 32px; 
     color: #ff6699; 
     font-weight: bold; 
@@ -127,7 +127,7 @@ body {
     max-width: 800px;
 }
 
-/* EMOJİLER (STİCKERS) */
+/* EMOJİLER (BİLGİSAYAR İÇİN VARSAYILAN) */
 .sticker { 
     position: absolute; 
     font-size: 80px; 
@@ -147,11 +147,10 @@ body {
     50% { transform: translateY(-20px); } 
 }
 
-/* TELEFONLAR İÇİN ÖZEL DÜZEN (Senin İstediğin) */
+/* TELEFONLAR İÇİN ÖZEL DÜZEN */
 @media (max-width: 768px) {
     .poncik-header { font-size: 45px; padding: 60px 15px; }
 
-    /* Butonlar Yan Yana ve Küçük */
     .nav-container {
         flex-direction: row !important;
         gap: 10px !important;
@@ -165,19 +164,21 @@ body {
         box-shadow: 0 4px 0px #ffcc00 !important;
     }
 
-    /* Metin Ortada ve Aşağıda */
     .welcome-msg {
-        margin-top: 180px !important;
+        margin-top: 150px !important;
         font-size: 20px !important;
-        padding: 0 60px !important; /* Emojilere yer açar */
+        padding: 0 60px !important;
     }
 
-    /* Emojiler Dört Köşede */
     .sticker { font-size: 45px !important; }
-    #rainbow { top: 220px !important; left: 5% !important; }  /* Sol Üst */
-    #candy   { top: 220px !important; right: 5% !important; } /* Sağ Üst */
-    #wheel   { bottom: 60px !important; left: 10% !important; } /* Sol Alt */
-    #rocket  { bottom: 60px !important; right: 10% !important; }/* Sağ Alt */
+    
+    /* Üsttekiler */
+    #rainbow { top: 200px !important; left: 5% !important; }
+    #candy   { top: 200px !important; right: 5% !important; }
+    
+    /* Alttakiler (SENİN İSTEDİĞİN GİBİ DAHA YUKARIDA) */
+    #wheel   { bottom: 220px !important; left: 10% !important; top: auto !important; } 
+    #rocket  { bottom: 220px !important; right: 10% !important; top: auto !important; }
 }
 
 /* KARAKTER SAYFALARI */
@@ -208,7 +209,7 @@ body {
     line-height: 1.6; 
 }
 
-/* KARAKTER RENKLERİ */
+/* RENKLER */
 #ertugrul-sayfasi { background: #000; color: white; }
 .ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 45px; font-family: 'Fredoka One'; }
 .ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
