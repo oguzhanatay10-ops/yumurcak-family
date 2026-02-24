@@ -1,7 +1,7 @@
 /* style.css */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
-/* --- GENEL VE GİZLİLİK AYARLARI --- */
+/* --- 1. GENEL VE GİZLİLİK AYARLARI --- */
 body { 
     margin: 0; 
     padding: 0; 
@@ -10,7 +10,7 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* Karakter sayfalarını başlangıçta kesin olarak gizler */
+/* Karakter sayfaları butona basılana kadar asla görünmez */
 .page { 
     display: none !important; 
     min-height: 100vh; 
@@ -18,7 +18,7 @@ body {
     padding-bottom: 80px; 
 }
 
-/* --- SES KONTROL BUTONU --- */
+/* --- 2. SES KONTROLÜ --- */
 #audio-control {
     position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px;
     background: white; border: 4px solid #ff99cc; border-radius: 50%;
@@ -26,7 +26,7 @@ body {
     font-size: 30px; cursor: pointer; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* --- ANASAYFA TASARIMI --- */
+/* --- 3. ANASAYFA TASARIMI --- */
 #anasayfa {
     background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
     min-height: 100vh; display: flex; flex-direction: column; align-items: center;
@@ -48,25 +48,52 @@ body {
     cursor: pointer; box-shadow: 0 10px 0px #ffcc00; transition: 0.3s; 
 }
 
+/* BOZUK GÖRÜNEN MENÜNÜN DÜZELTİLMİŞ HALİ */
+.dropdown-content { 
+    display: none; /* Başlangıçta görünmez yaparak bozukluğu giderir */
+    position: absolute; 
+    background: white; 
+    min-width: 250px; 
+    border-radius: 20px;
+    border: 4px solid #ff99cc; 
+    margin-top: 10px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 2000; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.dropdown-content.show { display: block !important; }
+
+.dropdown-content a { 
+    font-size: 20px; 
+    padding: 12px 20px; 
+    text-decoration: none !important; /* Mavi çizgiyi kaldırır */
+    color: #ff6699 !important;       /* Pembe yapar */
+    display: block; 
+    border-bottom: 1px solid #f0f0f0; 
+}
+
 .welcome-msg {
     margin-top: 200px; font-size: 32px; color: #ff6699; font-weight: bold;
     text-align: center; padding: 0 20px; line-height: 1.6; font-family: 'Fredoka One', cursive;
     z-index: 10; max-width: 800px;
 }
 
-/* --- EMOJİLER (BİLGİSAYAR) --- */
+/* --- 4. EMOJİLER (BİLGİSAYAR KONUMLARI) --- */
 .sticker { 
     position: absolute; font-size: 80px; cursor: pointer; z-index: 5; 
     animation: bounce 2.5s infinite ease-in-out; display: inline-block; 
 }
 #rainbow { top: 350px; left: 10%; } 
 #candy   { top: 350px; right: 10%; } 
-#wheel   { bottom: 100px; left: 15%; } 
-#rocket  { bottom: 100px; right: 15%; } 
+#wheel   { bottom: 100px; left: 15%; } /* Bilgisayarda aşağıda */
+#rocket  { bottom: 100px; right: 15%; } /* Bilgisayarda aşağıda */
 
 @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-/* --- SADECE TELEFONLAR İÇİN --- */
+/* --- 5. TELEFONLAR İÇİN ÖZEL DÜZEN --- */
 @media (max-width: 768px) {
     .poncik-header { font-size: 40px; padding: 50px 10px; }
 
@@ -95,11 +122,12 @@ body {
     #rainbow { top: 180px !important; left: 5% !important; }
     #candy   { top: 180px !important; right: 5% !important; }
     
+    /* Telefondaki yukarı konumlar */
     #wheel { top: auto !important; bottom: 220px !important; left: 8% !important; } 
     #rocket { top: auto !important; bottom: 220px !important; right: 8% !important; }
 }
 
-/* --- KARAKTER SAYFALARI STİLLERİ --- */
+/* --- 6. KARAKTER SAYFALARI VE RENKLER --- */
 .char-img { width: 300px; border-radius: 40px; margin: 20px auto; display: block; }
 .hikaye-box { max-width: 700px; margin: 15px auto; padding: 25px; border-radius: 35px; text-align: left; font-size: 18px; line-height: 1.6; }
 
