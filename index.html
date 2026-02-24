@@ -2,7 +2,12 @@
 <html lang="tr">
 <head>
     <script>
-    if (window.innerWidth <= 768) {
+    // Daha detaylı mobil kontrolü
+    function isMobile() {
+        return (window.innerWidth <= 800) || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    if (isMobile()) {
         window.location.href = "./mobile/index.html";
     }
 </script>
