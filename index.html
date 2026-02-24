@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<style>
-    /* SADECE TELEFONLAR İÇİN AYAR */
-    @media screen and (max-width: 768px) {
-        .welcome-msg {
-            /* Yazıyı yukarı çekmek için bu sayıyla oynayabilirsin */
-            margin-top: -50px !important; 
-            position: relative;
-            z-index: 10;
-        }
-        
-        /* Eğer emoji (poncik-header) çok yakında kalırsa onu da biraz yukarı alalım */
-        .poncik-header {
-            margin-top: 10px !important;
-        }
-    }
-</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yumurcak Family - Tam Kadro</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* SADECE TELEFONLAR İÇİN AYAR */
+        @media screen and (max-width: 768px) {
+            .welcome-msg {
+                /* Yazıyı mobilde yukarı çekiyoruz ama kaybolmayacak kadar (-30px idealdir) */
+                margin-top: -30px !important; 
+                position: relative;
+                z-index: 10;
+                display: block !important;
+            }
+            
+            .poncik-header {
+                /* Başlığı da biraz yukarı alarak yer açalım */
+                margin-top: 5px !important;
+            }
+
+            .nav-container {
+                /* Menü butonlarını mobilde biraz daha derli toplu yapar */
+                margin-bottom: 15px;
+            }
+        }
+    </style>
 </head>
 <body onclick="handleFirstClick()">
 
@@ -30,7 +37,10 @@
     <div id="anasayfa">
         <div id="rainbow" class="sticker" onclick="changeBg(event)">🌈</div>
         <div id="candy"   class="sticker" onclick="candyRain(event)">🍭</div>
-        <div id="wheel"   class="sticker">🎡</div> <div id="rocket"  class="sticker">🚀</div>  <div class="poncik-header">Yumurcak Family</div>
+        <div id="wheel"   class="sticker">🎡</div> 
+        <div id="rocket"  class="sticker">🚀</div>  
+        
+        <div class="poncik-header">Yumurcak Family</div>
 
         <div class="nav-container">
             <div style="position:relative;">
@@ -56,13 +66,7 @@
         <img src="https://i.ibb.co/5WGzXPKn/bumbastik.jpg" class="char-img" style="border: 6px solid red;">
         <div class="hikaye-box ert-box">
             <b style="color:red; display:block; text-align:center; font-size:1.2em; margin-bottom:10px;">Sayıların Efendisi</b>
-            <p>Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu... O, evrenin en büyük sırrını, yani kayıp <b>"0" (Sıfır)</b> sayısının gerçek gücünü keşfettiğinde değişti.</p>
-            <p>Ertuğrul Bey'in en büyük hobisi, merdivenlerden aşağı bakarken derin derin <b>düşünmektir</b>. Sert görünüşünün altında aslında <b>çok eğlenceli</b> bir ruh yatar. Gücünü ise her sabah içtiği bol limonlu <b>Mercimek Çorbası</b>'ndan alır!</p>
-            <div class="gizem-ani" style="margin-top: 30px; border-top: 1px dashed red; padding-top: 20px; color: #ff6666; font-style: italic;">
-                <b>Karanlık Bir Anı:</b> Bir gece yağmurun altında merdivenlerde otururken, rüzgarın fısıltısı ona şunu sordu: 
-                <br><i>"Sıfır yoksa, senin varlığın neyi çarpar?"</i> 
-                <br>O günden beri Ertuğrul Bey'in gözlerindeki o gizemli parıltı hiç sönmedi.
-            </div>
+            <p>Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu...</p>
         </div>
         <button class="back-btn" style="background: red;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
@@ -70,35 +74,18 @@
     <div id="capybaraa-sayfasi" class="page">
         <div class="capy-header">CAPYBARAA</div>
         <img src="https://i.ibb.co/27CN1Hby/Gemini-Generated-mage-d1aw51d1aw51d1aw.png" class="char-img" style="border: 8px solid #ffb74d;">
-        <div class="hikaye-box capy-box">
-            <p>O, Yumurcak dünyasının en bilge ve sakin üyesi! 🌿</p>
-            <p><b>Capybaraa</b>, portakal banyosu yaparken Mr. Ertuğrul'un en karmaşık formüllerini not alması için ona o meşhur <b>Siyah Rotring</b> kalemini uzatır. 🖋️</p>
-            <p>Onun tüyleri huzur verir, bakışları stresi yok eder. En büyük gücü <b>"Sonsuz Huzur"</b>dur. Capybaraa yanınızdayken en zor matematik problemleri bile çocuk oyuncağına dönüşür!</p>
-        </div>
         <button class="back-btn" style="background: #f57c00;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
 
     <div id="lida-sayfasi" class="page">
         <div class="lida-header">LİDA (BIRDY)</div>
         <img src="https://i.ibb.co/ccbj2w09/Gemini-Generated-mage-54xlee54xlee54xl.png" class="char-img" style="border: 8px solid #4dd0e1;">
-        <div class="hikaye-box lida-box">
-            <b style="color:#00838f; display:block; text-align:center; font-size:1.2em; margin-bottom:10px;">Dillerin ve Gökyüzünün Elçisi</b>
-            <p>Lida, Yumurcak Family'nin en zeki ve çok dilli üyesidir. O, <b>İngilizce ve Farsça bilen nadir bir kuştur.</b> 🐦✨</p>
-            <p>Kanat çırparken havada süzülen bir tüy gibi hafif olsa da, zihni kütüphaneler kadar doludur. İngilizce şarkılar söyleyerek sabahları herkesi uyandırır, akşamları ise Farsça şiirler mırıldanarak gökyüzünü selamlar.</p>
-            <p>Elindeki kalemi ve üzerinde durduğu antik kitabı ile Lida, dillerin arasındaki köprüyü kurar. Mr. Ertuğrul'un matematik denklemlerini farklı dillere çevirerek tüm evrene yayar!</p>
-        </div>
         <button class="back-btn" style="background: #00acc1;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
 
     <div id="kurbaga-sayfasi" class="page">
         <div class="kurbaga-header">PROF. KURBAĞA</div>
         <img src="https://i.ibb.co/fGYd3T7c/Gemini-Generated-mage-h6dqtjh6dqtjh6dq.png" class="char-img" style="border: 8px solid #66bb6a;">
-        <div class="hikaye-box kurbaga-box">
-            <b style="color:#2e7d32; display:block; text-align:center; font-size:1.4em; margin-bottom:15px;">Kuantumun ve Sevginin Fizikçisi</b>
-            <p>Yumurcak Koleji'nin en disiplinli ama en tatlı öğretmenlerinden biriyle tanışın: <b>Prof. Kurbağa!</b> 🐸</p>
-            <p>Kendisi uzman bir <b>Fizik Öğretmenidir</b> ve sınıfa girdiğinde tahtaya sadece formüller yazmaz, evrenin neşesini saçar. Onun en büyük yeteneği, <b>öğrencilerinin konuyu anlayıp anlamadığını sadece gözlerine bakarak anlamasıdır.</b> 👀✨</p>
-            <p>Eğer bir öğrencinin kafasında minik bir soru işareti görürse, hemen cebinden hayali bir atom çıkarır ve o konuyu en eğlenceli deneylerle anlatmaya başlar. Kafasındaki fiyonku, aslında yerçekimine meydan okuyan özel bir tasarım!</p>
-        </div>
         <button class="back-btn" style="background: #388e3c;" onclick="sayfaDegistir('anasayfa')">← Geri Dön</button>
     </div>
 
