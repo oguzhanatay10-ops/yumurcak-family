@@ -6,25 +6,23 @@
     <title>Yumurcak Family - Tam Kadro</title>
     <link rel="stylesheet" href="style.css">
     
-   <style>
-    /* 1. SADECE BİLGİSAYARLAR (GENİŞ EKRANLAR) İÇİN */
-    @media screen and (min-width: 769px) {
-        .welcome-msg {
-            /* Bilgisayarda yukarı çekme miktarı */
-            margin-top: 45px !important; 
-            position: relative;
-            z-index: 10;
+    <style>
+        /* 1. BİLGİSAYARLAR İÇİN ÖZEL AYARLAR */
+        @media screen and (min-width: 769px) {
+            .welcome-msg {
+                margin-top: 45px !important; 
+                position: relative;
+                z-index: 10;
+            }
         }
-    }
 
-    /* 2. TELEFONLAR İÇİN (MEVCUT HALİ KALSIN) */
-    @media screen and (max-width: 768px) {
-        .welcome-msg {
-            /* Telefonda senin beğendiğin eski ayar kalsın */
-            margin-top: 40px !important; 
+        /* 2. TELEFONLAR İÇİN ÖZEL AYARLAR */
+        @media screen and (max-width: 768px) {
+            .welcome-msg {
+                margin-top: 40px !important; 
+            }
         }
-    }
-</style>
+    </style>
 </head>
 <body onclick="handleFirstClick()">
 
@@ -34,17 +32,20 @@
     <div id="anasayfa">
         <div id="rainbow" class="sticker" onclick="changeBg(event)">🌈</div>
         <div id="candy"   class="sticker" onclick="candyRain(event)">🍭</div>
-        <div id="wheel"   class="sticker">🎡</div> <div id="rocket"  class="sticker">🚀</div>  <div class="poncik-header">Yumurcak Family</div>
+        <div id="wheel"   class="sticker">🎡</div> 
+        <div id="rocket"  class="sticker">🚀</div>
+        
+        <div class="poncik-header">Yumurcak Family</div>
 
         <div class="nav-container">
             <div style="position:relative;">
                 <button class="menu-btn" onclick="toggleMenu(event)">Karakterler ▾</button>
                 <div id="myDropdown" class="dropdown-content">
-    <a href="javascript:void(0)" onclick="sayfaDegistir('ertugrul')">🔥 Mr. Ertuğrul</a>
-    <a href="javascript:void(0)" onclick="sayfaDegistir('capybaraa')">🌿 Capybaraa</a>
-    <a href="javascript:void(0)" onclick="sayfaDegistir('lida')">🐦 Lida (Birdy)</a>
-    <a href="javascript:void(0)" onclick="sayfaDegistir('kurbaga')">🐸 Prof. Kurbağa</a>
-</div>
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('ertugrul')">🔥 Mr. Ertuğrul</a>
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('capybaraa')">🌿 Capybaraa</a>
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('lida')">🐦 Lida (Birdy)</a>
+                    <a href="javascript:void(0)" onclick="sayfaDegistir('kurbaga')">🐸 Prof. Kurbağa</a>
+                </div>
             </div>
             <a href="games.html" class="menu-btn" style="text-decoration:none;">Games</a>
         </div>
@@ -62,7 +63,7 @@
             <b style="color:red; display:block; text-align:center; font-size:1.2em; margin-bottom:10px;">Sayıların Efendisi</b>
             <p>Gündüzleri Yumurcak Koleji'nde tahtaya denklemler yazan karizmatik bir <b>Matematik Öğretmeni</b>, geceleri ise şehrin koruyucusu... O, evrenin en büyük sırrını, yani kayıp <b>"0" (Sıfır)</b> sayısının gerçek gücünü keşfettiğinde değişti.</p>
             <p>Ertuğrul Bey'in en büyük hobisi, merdivenlerden aşağı bakarken derin derin <b>düşünmektir</b>. Sert görünüşünün altında aslında <b>çok eğlenceli</b> bir ruh yatar. Gücünü ise her sabah içtiği bol limonlu <b>Mercimek Çorbası</b>'ndan alır!</p>
-            <div class="gizem-ani" style="margin-top: 30px; border-top: 1px dashed red; padding-top: 20px; color: #ff6666; font-style: italic;">
+            <div style="margin-top: 30px; border-top: 1px dashed red; padding-top: 20px; color: #ff6666; font-style: italic;">
                 <b>Karanlık Bir Anı:</b> Bir gece yağmurun altında merdivenlerde otururken, rüzgarın fısıltısı ona şunu sordu: 
                 <br><i>"Sıfır yoksa, senin varlığın neyi çarpar?"</i> 
                 <br>O günden beri Ertuğrul Bey'in gözlerindeki o gizemli parıltı hiç sönmedi.
