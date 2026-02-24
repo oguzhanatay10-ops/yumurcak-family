@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <script>
-    // Daha detaylı mobil kontrolü
-    function isMobile() {
-        return (window.innerWidth <= 800) || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+<style>
+    /* SADECE TELEFONLAR İÇİN AYAR */
+    @media screen and (max-width: 768px) {
+        .welcome-msg {
+            /* Yazıyı yukarı çekmek için bu sayıyla oynayabilirsin */
+            margin-top: -50px !important; 
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Eğer emoji (poncik-header) çok yakında kalırsa onu da biraz yukarı alalım */
+        .poncik-header {
+            margin-top: 10px !important;
+        }
     }
-
-    if (isMobile()) {
-        window.location.href = "./mobile/index.html";
-    }
-</script>
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yumurcak Family - Tam Kadro</title>
