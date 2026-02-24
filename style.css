@@ -139,8 +139,8 @@ body {
 
 #rainbow { top: 350px; left: 10%; } 
 #candy   { top: 350px; right: 10%; } 
-#wheel   { bottom: 200px; left: 15%; } 
-#rocket  { bottom: 1200px; right: 15%; } 
+#wheel   { bottom: 150px; left: 15%; } 
+#rocket  { bottom: 150px; right: 15%; } 
 
 @keyframes bounce { 
     0%, 100% { transform: translateY(0); } 
