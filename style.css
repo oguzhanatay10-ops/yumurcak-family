@@ -1,43 +1,48 @@
 /* style.css */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
-/* --- 1. GENEL VE GİZLİLİK AYARLARI --- */
 body { 
-    margin: 0; 
-    padding: 0; 
-    font-family: 'Short Stack', cursive; 
-    overflow-x: hidden; 
-    scroll-behavior: smooth; 
+    margin: 0; padding: 0; font-family: 'Short Stack', cursive; 
+    overflow-x: hidden; scroll-behavior: smooth; 
 }
 
-/* Karakter sayfaları butona basılana kadar asla görünmez */
+/* --- SAYFA GİZLEME (Beyaz ekran sorununu çözer) --- */
 .page { 
-    display: none !important; 
-    min-height: 100vh; 
-    text-align: center; 
-    padding-bottom: 80px; 
+    display: none; /* !important eklemiyoruz ki JavaScript açabilsin */
+    min-height: 100vh; text-align: center; padding-bottom: 80px; 
 }
 
-/* --- 2. SES KONTROLÜ --- */
-#audio-control {
-    position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px;
-    background: white; border: 4px solid #ff99cc; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 30px; cursor: pointer; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+/* --- MENÜ AYARLARI (Mavi yazıları önler) --- */
+.dropdown-content { 
+    display: none; 
+    position: absolute; background: white; min-width: 250px; 
+    border-radius: 20px; border: 4px solid #ff99cc; 
+    margin-top: 10px; left: 50%; transform: translateX(-50%); 
+    z-index: 2000; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
-/* --- 3. ANASAYFA TASARIMI --- */
+/* JavaScript 'show' eklediğinde menü açılır */
+.dropdown-content.show { display: block !important; }
+
+.dropdown-content a { 
+    font-size: 20px; padding: 12px 20px; 
+    text-decoration: none !important; color: #ff6699 !important; 
+    display: block; border-bottom: 1px solid #f0f0f0; 
+}
+
+/* --- ANASAYFA --- */
 #anasayfa {
     background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
     min-height: 100vh; display: flex; flex-direction: column; align-items: center;
-    position: relative; transition: background 0.8s ease;
+    position: relative;
 }
 
 .poncik-header {
     background: linear-gradient(to right, #ffcc00, #ff99cc);
     width: 100%; padding: 80px 0; text-align: center; color: white;
     font-family: 'Fredoka One', cursive; font-size: 80px;
-    border-radius: 0 0 80px 80px; text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10;
+    border-radius: 0 0 80px 80px;
 }
 
 .nav-container { margin-top: -45px; position: relative; z-index: 1000; display: flex; gap: 20px; }
@@ -48,103 +53,45 @@ body {
     cursor: pointer; box-shadow: 0 10px 0px #ffcc00; transition: 0.3s; 
 }
 
-/* BOZUK GÖRÜNEN MENÜNÜN DÜZELTİLMİŞ HALİ */
-.dropdown-content { 
-    display: none; /* Başlangıçta görünmez yaparak bozukluğu giderir */
-    position: absolute; 
-    background: white; 
-    min-width: 250px; 
-    border-radius: 20px;
-    border: 4px solid #ff99cc; 
-    margin-top: 10px; 
-    left: 50%;
-    transform: translateX(-50%); 
-    z-index: 2000; 
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
-
-.dropdown-content.show { display: block !important; }
-
-.dropdown-content a { 
-    font-size: 20px; 
-    padding: 12px 20px; 
-    text-decoration: none !important; /* Mavi çizgiyi kaldırır */
-    color: #ff6699 !important;       /* Pembe yapar */
-    display: block; 
-    border-bottom: 1px solid #f0f0f0; 
-}
-
 .welcome-msg {
     margin-top: 200px; font-size: 32px; color: #ff6699; font-weight: bold;
-    text-align: center; padding: 0 20px; line-height: 1.6; font-family: 'Fredoka One', cursive;
-    z-index: 10; max-width: 800px;
+    text-align: center; padding: 0 20px; font-family: 'Fredoka One', cursive;
 }
 
-/* --- 4. EMOJİLER (BİLGİSAYAR KONUMLARI) --- */
-.sticker { 
-    position: absolute; font-size: 80px; cursor: pointer; z-index: 5; 
-    animation: bounce 2.5s infinite ease-in-out; display: inline-block; 
-}
+/* --- EMOJİLER (BİLGİSAYAR) --- */
+.sticker { position: absolute; font-size: 80px; z-index: 5; animation: bounce 2.5s infinite ease-in-out; }
 #rainbow { top: 350px; left: 10%; } 
 #candy   { top: 350px; right: 10%; } 
-#wheel   { bottom: 100px; left: 15%; } /* Bilgisayarda aşağıda */
-#rocket  { bottom: 100px; right: 15%; } /* Bilgisayarda aşağıda */
+#wheel   { bottom: 100px; left: 15%; } 
+#rocket  { bottom: 100px; right: 15%; } 
 
 @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-/* --- 5. TELEFONLAR İÇİN ÖZEL DÜZEN --- */
+/* --- MOBİL AYARLAR --- */
 @media (max-width: 768px) {
     .poncik-header { font-size: 40px; padding: 50px 10px; }
-
-    .nav-container {
-        flex-direction: row !important;
-        gap: 10px !important;
-        margin-top: -30px !important;
-        display: flex !important;
-    }
-
-    .menu-btn {
-        padding: 8px 12px !important;
-        font-size: 15px !important;
-        border-width: 4px !important;
-        box-shadow: 0 4px 0px #ffcc00 !important;
-    }
-
-    .welcome-msg {
-        margin-top: 140px !important;
-        font-size: 19px !important;
-        padding: 0 50px !important;
-    }
-
+    .nav-container { flex-direction: row !important; gap: 10px !important; margin-top: -30px !important; display: flex !important; }
+    .menu-btn { padding: 8px 12px !important; font-size: 15px !important; border-width: 4px !important; box-shadow: 0 4px 0px #ffcc00 !important; }
+    .welcome-msg { margin-top: 140px !important; font-size: 19px !important; padding: 0 50px !important; }
     .sticker { font-size: 40px !important; }
-    
     #rainbow { top: 180px !important; left: 5% !important; }
     #candy   { top: 180px !important; right: 5% !important; }
-    
-    /* Telefondaki yukarı konumlar */
     #wheel { top: auto !important; bottom: 220px !important; left: 8% !important; } 
     #rocket { top: auto !important; bottom: 220px !important; right: 8% !important; }
 }
 
-/* --- 6. KARAKTER SAYFALARI VE RENKLER --- */
-.char-img { width: 300px; border-radius: 40px; margin: 20px auto; display: block; }
-.hikaye-box { max-width: 700px; margin: 15px auto; padding: 25px; border-radius: 35px; text-align: left; font-size: 18px; line-height: 1.6; }
-
+/* --- KARAKTER RENKLERİ --- */
 #ertugrul-sayfasi { background: #000; color: white; }
-.ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 45px; font-family: 'Fredoka One'; }
-.ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
-
 #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
-.capy-header { background: #ffb74d; padding: 40px; border-bottom: 8px solid #f57c00; color: white; font-size: 45px; font-family: 'Fredoka One'; }
-.capy-box { border: 5px solid #ffb74d; }
-
 #lida-sayfasi { background: #e0f7fa; color: #006064; }
-.lida-header { background: #4dd0e1; padding: 40px; border-bottom: 8px solid #00acc1; color: white; font-size: 45px; font-family: 'Fredoka One'; }
-.lida-box { border: 5px solid #4dd0e1; }
-
 #kurbaga-sayfasi { background: #f1f8e9; color: #1b5e20; }
-.kurbaga-header { background: #81c784; padding: 40px; border-bottom: 8px solid #388e3c; color: white; font-size: 45px; font-family: 'Fredoka One'; }
-.kurbaga-box { border: 5px solid #81c784; }
 
+.ert-header, .capy-header, .lida-header, .kurbaga-header { padding: 40px; font-family: 'Fredoka One'; font-size: 45px; color: white; }
+.ert-header { background: #111; border-bottom: 8px solid red; color: red; }
+.capy-header { background: #ffb74d; border-bottom: 8px solid #f57c00; }
+.lida-header { background: #4dd0e1; border-bottom: 8px solid #00acc1; }
+.kurbaga-header { background: #81c784; border-bottom: 8px solid #388e3c; }
+
+.char-img { width: 300px; border-radius: 40px; margin: 20px auto; display: block; }
+.hikaye-box { max-width: 700px; margin: 15px auto; padding: 25px; border-radius: 35px; text-align: left; font-size: 18px; line-height: 1.6; border: 5px solid rgba(0,0,0,0.1); }
 .back-btn { border: none; padding: 15px 40px; border-radius: 20px; cursor: pointer; font-size: 20px; margin-top: 30px; color: white; font-family: 'Fredoka One'; }
