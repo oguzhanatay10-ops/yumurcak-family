@@ -1,19 +1,27 @@
 /* style.css */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
-/* --- 1. SIFIRLAMA VE GENEL AYARLAR (Beyaz çizgiyi yok eder) --- */
+/* --- 1. KESİN SIFIRLAMA (Beyaz Çizgiyi Her Yerde Yok Eder) --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
-body { 
-    margin: 0 !important; 
-    padding: 0 !important; 
-    font-family: 'Short Stack', cursive; 
-    overflow-x: hidden; 
-    scroll-behavior: smooth; 
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow-x: hidden;
+    /* Çizgi oluşsa bile başlık rengiyle (sarı) kamufle eder */
+    background-color: #ffcc00; 
+}
+
+body {
+    font-family: 'Short Stack', cursive;
+    scroll-behavior: smooth;
+    line-height: 1.4;
 }
 
 /* Sayfaların başlangıçta gizli olması */
@@ -51,7 +59,7 @@ body {
     border-bottom: 1px solid #f0f0f0; 
 }
 
-/* --- 3. ANASAYFA --- */
+/* --- 3. ANASAYFA TASARIMI --- */
 #anasayfa {
     background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
     min-height: 100vh; 
@@ -109,9 +117,24 @@ body {
 /* --- 5. MOBİL AYARLAR (TELEFON) --- */
 @media (max-width: 768px) {
     .poncik-header { font-size: 40px; padding: 50px 10px; }
-    .nav-container { flex-direction: row !important; gap: 10px !important; margin-top: -30px !important; display: flex !important; }
-    .menu-btn { padding: 8px 12px !important; font-size: 15px !important; border-width: 4px !important; box-shadow: 0 4px 0px #ffcc00 !important; }
+    
+    .nav-container { 
+        flex-direction: row !important; 
+        gap: 10px !important; 
+        margin-top: -30px !important; 
+        display: flex !important; 
+        justify-content: center;
+    }
+
+    .menu-btn { 
+        padding: 8px 12px !important; 
+        font-size: 15px !important; 
+        border-width: 4px !important; 
+        box-shadow: 0 4px 0px #ffcc00 !important; 
+    }
+
     .welcome-msg { margin-top: 140px !important; font-size: 19px !important; padding: 0 50px !important; }
+
     .sticker { font-size: 40px !important; }
     #rainbow { top: 180px !important; left: 5% !important; }
     #candy   { top: 180px !important; right: 5% !important; }
