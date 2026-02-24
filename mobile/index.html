@@ -6,58 +6,58 @@
     <title>Mobil Sayfa</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: sans-serif;
             background-color: #f4f4f9;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Her şeyi en üste yasla */
+            justify-content: flex-start; 
             min-height: 100vh;
-            color: #333;
             text-align: center;
-            padding-top: 5px; /* Üst boşluğu 50'den 20'ye indirdim */
         }
+
         .content {
             width: 90%;
-            /* Beyaz kutu arkalığını kaldırdım veya istersen paddingi azaltabilirsin */
-            padding: 10px;
+            /* Sayfanın en tepesinden olan boşluk (azalttım) */
+            padding-top: 10px; 
         }
+
         .emoji {
-            font-size: 50px;
-            margin-bottom: 5px;
-            display: block;
+            font-size: 40px;
+            margin-bottom: 0px;
         }
-        h1 h1 { 
-    color: #2d3436; 
-    font-size: 28px; 
-    /* Buradaki eksi değer yazıyı yukarı çeker. 
-       -20px yaparsan daha yukarı, -50px yaparsan en tepeye çıkar. */
-    margin-top: -30px; 
-    margin-bottom: 10px;
-}/* Başlık boşluklarını sıfırladım */
+
+        h1 { 
+            font-size: 26px;
+            margin-top: 5px; /* Başlığı yukarı çektik */
+            margin-bottom: 0px; /* Başlığın altındaki boşluğu sıfırladık */
+            color: #333;
         }
-        p { 
-            color: #636e72; 
-            line-height: 1.4;
+
+        p {
+            color: #666;
             font-size: 18px;
-            margin-top: 0;
+            /* İŞTE BURASI: Yazıyı yukarı çeken asıl ayar */
+            margin-top: 5px; 
+            line-height: 1.4;
         }
+
         .btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
-            background-color: #00b894; /* Rengi biraz tazeledim */
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
             color: white;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
+            border-radius: 8px;
         }
+
         .desktop-link {
             margin-top: auto;
             margin-bottom: 20px;
-            font-size: 13px;
-            color: #b2bec3;
+            font-size: 14px;
+            color: #999;
             text-decoration: none;
         }
     </style>
@@ -65,10 +65,10 @@
 <body>
 
     <div class="content">
-        <span class="emoji">👋📱</span>
+        <div class="emoji">👋📱</div>
         <h1>Mobil Dünyaya Hoş Geldin!</h1>
-        <p>İstediğin gibi her şeyi daha yukarı taşıdım. 😊</p>
-        <a href="#" class="btn">Hemen Başla</a>
+        <p>Merhaba, işte burası senin mobil sayfan!</p>
+        <a href="#" class="btn">Kullanmaya Başla</a>
     </div>
 
     <a href="../index.html" class="desktop-link">Masaüstü Sürümüne Geç</a>
