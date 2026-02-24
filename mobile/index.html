@@ -3,44 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobil Sayfa</title>
+    <title>Mobil Sayfa v2</title>
     <style>
         body {
             font-family: sans-serif;
             background-color: #f4f4f9;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            text-align: center;
+            height: 100vh;
+            overflow: hidden; /* Gereksiz kaydırmayı engeller */
         }
 
         .content {
-            width: 90%;
-            /* Bu kısım tüm bloğu yukarı çeker */
-            margin-top: -20px; 
+            position: absolute;
+            top: 20px; /* EKRANIN EN TEPESİNDEN MESAFE - Burayı 0 yaparsan sıfıra yapışır */
+            width: 100%;
+            text-align: center;
         }
 
         .emoji {
-            font-size: 45px;
-            margin-top: 0;
+            font-size: 40px;
+            margin: 0;
         }
 
         h1 { 
-            font-size: 26px;
+            font-size: 24px;
+            margin: 5px 0 0 0; /* Üst boşluğu 5px yaptık */
             color: #333;
-            /* BAŞLIĞI YUKARI ÇEKİYORUZ */
-            margin-top: -10px; 
-            margin-bottom: 0;
         }
 
         p {
             color: #666;
             font-size: 18px;
-            /* "MERHABA İŞTE BURASI" YAZISINI YUKARI ÇEKİYORUZ */
-            margin-top: -5px; 
+            margin: 2px 0 0 0; /* "Merhaba" yazısının üst boşluğunu neredeyse sıfırladık */
         }
 
         .btn {
@@ -54,8 +48,10 @@
         }
 
         .desktop-link {
-            margin-top: auto;
-            margin-bottom: 20px;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
             font-size: 14px;
             color: #999;
             text-decoration: none;
@@ -73,5 +69,5 @@
 
     <a href="../index.html" class="desktop-link">Masaüstü Sürümüne Geç</a>
 
-</body>
+    </body>
 </html>
