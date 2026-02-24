@@ -12,50 +12,47 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Yazıları yukarıya yaslamak için center yerine flex-start yaptık */
-            justify-content: flex-start; 
+            justify-content: flex-start; /* Her şeyi en üste yasla */
             min-height: 100vh;
             color: #333;
             text-align: center;
-            /* Sayfanın en üstünden biraz boşluk bırakalım ki çok yapışmasın */
-            padding-top: 50px; 
+            padding-top: 20px; /* Üst boşluğu 50'den 20'ye indirdim */
         }
-        .container {
+        .content {
             width: 90%;
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            /* Beyaz kutu arkalığını kaldırdım veya istersen paddingi azaltabilirsin */
+            padding: 10px;
+        }
+        .emoji {
+            font-size: 50px;
+            margin-bottom: 5px;
+            display: block;
         }
         h1 { 
             color: #2d3436; 
-            font-size: 26px; 
-            margin-bottom: 10px;
+            font-size: 28px; 
+            margin: 0 0 10px 0; /* Başlık boşluklarını sıfırladım */
         }
         p { 
             color: #636e72; 
-            line-height: 1.6;
+            line-height: 1.4;
             font-size: 18px;
-        }
-        .emoji {
-            font-size: 40px;
-            display: block;
-            margin-bottom: 10px;
+            margin-top: 0;
         }
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #0984e3;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background-color: #00b894; /* Rengi biraz tazeledim */
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 12px;
             font-weight: bold;
         }
         .desktop-link {
-            margin-top: auto; /* Linki en aşağıya iter */
-            margin-bottom: 30px;
-            font-size: 14px;
+            margin-top: auto;
+            margin-bottom: 20px;
+            font-size: 13px;
             color: #b2bec3;
             text-decoration: none;
         }
@@ -63,11 +60,11 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="content">
         <span class="emoji">👋📱</span>
         <h1>Mobil Dünyaya Hoş Geldin!</h1>
-        <p>Her şey senin için yukarıda toplandı ve daha okunur hale getirildi. 😊</p>
-        <a href="#" class="btn">Hemen Keşfet</a>
+        <p>İstediğin gibi her şeyi daha yukarı taşıdım. 😊</p>
+        <a href="#" class="btn">Hemen Başla</a>
     </div>
 
     <a href="../index.html" class="desktop-link">Masaüstü Sürümüne Geç</a>
