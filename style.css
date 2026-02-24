@@ -1,7 +1,7 @@
 /* style.css */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Short+Stack&display=swap');
 
-/* GENEL AYARLAR */
+/* --- BİLGİSAYAR AYARLARI (VARSAYILAN) --- */
 body { 
     margin: 0; 
     padding: 0; 
@@ -10,151 +10,62 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* SES KONTROL BUTONU */
 #audio-control {
-    position: fixed; 
-    bottom: 20px; 
-    left: 20px; 
-    width: 60px; 
-    height: 60px;
-    background: white; 
-    border: 4px solid #ff99cc; 
-    border-radius: 50%;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    font-size: 30px; 
-    cursor: pointer; 
-    z-index: 9999; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px;
+    background: white; border: 4px solid #ff99cc; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; cursor: pointer; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* ANASAYFA TASARIMI */
 #anasayfa {
     background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 100%);
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    position: relative; 
-    transition: background 0.8s ease;
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+    position: relative; transition: background 0.8s ease;
 }
 
 .poncik-header {
     background: linear-gradient(to right, #ffcc00, #ff99cc);
-    width: 100%; 
-    padding: 80px 0; 
-    text-align: center; 
-    color: white; 
-    font-family: 'Fredoka One', cursive; 
-    font-size: 80px; 
-    border-radius: 0 0 80px 80px; 
-    text-shadow: 6px 6px 0px rgba(0,0,0,0.1); 
-    z-index: 10;
+    width: 100%; padding: 80px 0; text-align: center; color: white;
+    font-family: 'Fredoka One', cursive; font-size: 80px;
+    border-radius: 0 0 80px 80px; text-shadow: 6px 6px 0px rgba(0,0,0,0.1); z-index: 10;
 }
 
-/* NAVİGASYON (BUTONLAR) */
-.nav-container { 
-    margin-top: -45px; 
-    position: relative; 
-    z-index: 1000; 
-    display: flex; 
-    gap: 20px; 
-}
+.nav-container { margin-top: -45px; position: relative; z-index: 1000; display: flex; gap: 20px; }
 
 .menu-btn { 
-    background: white; 
-    color: #ff6699; 
-    padding: 20px 50px; 
-    font-size: 30px;
-    font-family: 'Fredoka One', cursive; 
-    border: 6px solid #ffcc00; 
-    border-radius: 60px;
-    cursor: pointer; 
-    box-shadow: 0 10px 0px #ffcc00; 
-    transition: 0.3s; 
+    background: white; color: #ff6699; padding: 20px 50px; font-size: 30px;
+    font-family: 'Fredoka One', cursive; border: 6px solid #ffcc00; border-radius: 60px;
+    cursor: pointer; box-shadow: 0 10px 0px #ffcc00; transition: 0.3s; 
 }
 
-.menu-btn:active {
-    box-shadow: 0 2px 0px #ffcc00;
-    transform: translateY(8px);
-}
-
-/* DROPDOWN (MENÜ) */
-.dropdown-content { 
-    display: block; 
-    position: absolute; 
-    background: white; 
-    min-width: 300px; 
-    border-radius: 30px;
-    border: 5px solid #ff99cc; 
-    margin-top: 20px; 
-    left: 50%;
-    transform: translateX(-50%) scaleY(0); 
-    transform-origin: top;
-    opacity: 0; 
-    transition: all 0.4s; 
-    overflow: hidden; 
-    pointer-events: none;
-}
-
-.dropdown-content.show { 
-    transform: translateX(-50%) scaleY(1); 
-    opacity: 1; 
-    pointer-events: auto; 
-}
-
-.dropdown-content a { 
-    font-size: 26px; 
-    padding: 15px 20px; 
-    text-decoration: none; 
-    color: #444; 
-    display: block; 
-    border-bottom: 1px solid #f0f0f0; 
-}
-
-/* ANA SAYFA METNİ */
 .welcome-msg {
-    margin-top: 200px; 
-    font-size: 32px; 
-    color: #ff6699; 
-    font-weight: bold; 
-    text-align: center; 
-    padding: 0 20px;
-    line-height: 1.6;
-    font-family: 'Fredoka One', cursive;
-    z-index: 10;
-    max-width: 800px;
+    margin-top: 200px; font-size: 32px; color: #ff6699; font-weight: bold;
+    text-align: center; padding: 0 20px; line-height: 1.6; font-family: 'Fredoka One', cursive;
+    z-index: 10; max-width: 800px;
 }
 
-/* EMOJİLER (BİLGİSAYAR İÇİN VARSAYILAN) */
+/* EMOJİLER (BİLGİSAYARDAKİ YERLERİ) */
 .sticker { 
-    position: absolute; 
-    font-size: 80px; 
-    cursor: pointer; 
-    z-index: 5; 
-    animation: bounce 2.5s infinite ease-in-out; 
-    display: inline-block; 
+    position: absolute; font-size: 80px; cursor: pointer; z-index: 5; 
+    animation: bounce 2.5s infinite ease-in-out; display: inline-block; 
 }
-
 #rainbow { top: 350px; left: 10%; } 
 #candy   { top: 350px; right: 10%; } 
 #wheel   { bottom: 150px; left: 15%; } 
 #rocket  { bottom: 150px; right: 15%; } 
 
-@keyframes bounce { 
-    0%, 100% { transform: translateY(0); } 
-    50% { transform: translateY(-20px); } 
-}
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-/* TELEFONLAR İÇİN ÖZEL DÜZEN */
+/* --- SADECE TELEFONLAR İÇİN (MOBILE ONLY) --- */
 @media (max-width: 768px) {
     .poncik-header { font-size: 45px; padding: 60px 15px; }
 
+    /* Butonları yan yana ve küçük yap */
     .nav-container {
         flex-direction: row !important;
         gap: 10px !important;
         margin-top: -30px !important;
+        display: flex !important;
     }
 
     .menu-btn {
@@ -172,44 +83,29 @@ body {
 
     .sticker { font-size: 45px !important; }
     
-    /* Üsttekiler */
-    #rainbow { top: 200px !important; left: 5% !important; }
-    #candy   { top: 200px !important; right: 5% !important; }
+    /* Telefon Köşe Ayarları */
+    #rainbow { top: 180px !important; left: 5% !important; }
+    #candy   { top: 180px !important; right: 5% !important; }
     
-    /* Alttakiler (SENİN İSTEDİĞİN GİBİ DAHA YUKARIDA) */
-    #wheel   { bottom: 220px !important; left: 10% !important; top: auto !important; } 
-    #rocket  { bottom: 220px !important; right: 10% !important; top: auto !important; }
+    /* Wheel ve Rocket'i telefonda yukarı taşıdık */
+    #wheel { 
+        top: auto !important; 
+        bottom: 220px !important; 
+        left: 10% !important; 
+    } 
+    #rocket { 
+        top: auto !important; 
+        bottom: 220px !important; 
+        right: 10% !important; 
+    }
 }
 
-/* KARAKTER SAYFALARI */
-.page { 
-    display: none; 
-    min-height: 100vh; 
-    text-align: center; 
-    padding-bottom: 80px; 
-    animation: fadeIn 0.5s; 
-}
-
+/* --- DİĞER SAYFALAR VE RENKLER (DEĞİŞMEDİ) --- */
+.page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; animation: fadeIn 0.5s; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.char-img { width: 350px; border-radius: 40px; margin: 30px auto; display: block; }
+.hikaye-box { max-width: 750px; margin: 20px auto; padding: 30px; border-radius: 40px; text-align: left; font-size: 20px; line-height: 1.6; }
 
-.char-img { 
-    width: 350px; 
-    border-radius: 40px; 
-    margin: 30px auto; 
-    display: block; 
-}
-
-.hikaye-box { 
-    max-width: 750px; 
-    margin: 20px auto; 
-    padding: 30px; 
-    border-radius: 40px; 
-    text-align: left; 
-    font-size: 20px; 
-    line-height: 1.6; 
-}
-
-/* RENKLER */
 #ertugrul-sayfasi { background: #000; color: white; }
 .ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 45px; font-family: 'Fredoka One'; }
 .ert-box { background: rgba(30, 30, 30, 0.9); border: 2px solid red; }
@@ -226,13 +122,4 @@ body {
 .kurbaga-header { background: #81c784; padding: 40px; border-bottom: 8px solid #388e3c; color: white; font-size: 45px; font-family: 'Fredoka One'; }
 .kurbaga-box { border: 5px solid #81c784; }
 
-.back-btn { 
-    border: none; 
-    padding: 15px 40px; 
-    border-radius: 20px; 
-    cursor: pointer; 
-    font-size: 20px; 
-    margin-top: 30px; 
-    color: white; 
-    font-family: 'Fredoka One'; 
-}
+.back-btn { border: none; padding: 15px 40px; border-radius: 20px; cursor: pointer; font-size: 20px; margin-top: 30px; color: white; font-family: 'Fredoka One'; }
