@@ -147,14 +147,16 @@ body {
 #capybaraa-sayfasi { background: #fdf5e6; color: #5d4037; }
 #lida-sayfasi { background: #e0f7fa; color: #006064; }
 #kurbaga-sayfasi { background: #f1f8e9; color: #1b5e20; }
-#corkie-sayfasi { background: #fffaf0; color: #5d4037; } /* Corkie Sayfa Arka Planı */
+#corkie-sayfasi { background: #fffaf0; color: #5d4037; }
+#haticee-sayfasi { background: #e8f5e9; color: #1b5e20; } /* Haticee Sayfa Arka Planı */
 
-.ert-header, .capy-header, .lida-header, .kurbaga-header, .corkie-header { padding: 40px; font-family: 'Fredoka One'; font-size: 45px; color: white; }
+.ert-header, .capy-header, .lida-header, .kurbaga-header, .corkie-header, .haticee-header { padding: 40px; font-family: 'Fredoka One'; font-size: 45px; color: white; text-align: center; }
 .ert-header { background: #111; border-bottom: 8px solid red; color: red; }
 .capy-header { background: #ffb74d; border-bottom: 8px solid #f57c00; }
 .lida-header { background: #4dd0e1; border-bottom: 8px solid #00acc1; }
 .kurbaga-header { background: #81c784; border-bottom: 8px solid #388e3c; }
-.corkie-header { background: #a0522d; border-bottom: 8px solid #8b4513; } /* Corkie Başlık Rengi */
+.corkie-header { background: #a0522d; border-bottom: 8px solid #8b4513; }
+.haticee-header { background: #4caf50; border-bottom: 8px solid #33691e; } /* Haticee Başlık Rengi */
 
 .char-img { width: 300px; border-radius: 40px; margin: 20px auto; display: block; border: 5px solid rgba(255,255,255,0.2); }
 @media (max-width: 768px) { .char-img { width: 85%; } }
@@ -169,4 +171,5 @@ body {
 #capybaraa-sayfasi .back-btn { background: #f57c00; }
 #lida-sayfasi .back-btn { background: #00acc1; }
 #kurbaga-sayfasi .back-btn { background: #388e3c; }
-#corkie-sayfasi .back-btn { background: #8b4513; } /* Corkie Buton Rengi */
+#corkie-sayfasi .back-btn { background: #8b4513; }
+#haticee-sayfasi .back-btn { background: #33691e; } /* Haticee Buton Rengi */
