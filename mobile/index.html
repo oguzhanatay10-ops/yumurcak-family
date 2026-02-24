@@ -12,10 +12,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            /* Yazıları yukarıya yaslamak için center yerine flex-start yaptık */
+            justify-content: flex-start; 
             min-height: 100vh;
             color: #333;
             text-align: center;
+            /* Sayfanın en üstünden biraz boşluk bırakalım ki çok yapışmasın */
+            padding-top: 50px; 
         }
         .container {
             width: 90%;
@@ -24,8 +27,21 @@
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        h1 { color: #2d3436; font-size: 24px; }
-        p { color: #636e72; line-height: 1.6; }
+        h1 { 
+            color: #2d3436; 
+            font-size: 26px; 
+            margin-bottom: 10px;
+        }
+        p { 
+            color: #636e72; 
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        .emoji {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+        }
         .btn {
             display: inline-block;
             margin-top: 20px;
@@ -35,11 +51,11 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            transition: 0.3s;
         }
         .desktop-link {
-            margin-top: 30px;
-            font-size: 12px;
+            margin-top: auto; /* Linki en aşağıya iter */
+            margin-bottom: 30px;
+            font-size: 14px;
             color: #b2bec3;
             text-decoration: none;
         }
@@ -48,9 +64,10 @@
 <body>
 
     <div class="container">
-        <h1>Mobil Dünyaya Hoş Geldin! 📱</h1>
-        <p>Bu sayfa telefonun için özel olarak tasarlandı. Burada daha hızlı ve kolay bir deneyim yaşayabilirsin.</p>
-        <a href="#" class="btn">Hemen Başla</a>
+        <span class="emoji">👋📱</span>
+        <h1>Mobil Dünyaya Hoş Geldin!</h1>
+        <p>Her şey senin için yukarıda toplandı ve daha okunur hale getirildi. 😊</p>
+        <a href="#" class="btn">Hemen Keşfet</a>
     </div>
 
     <a href="../index.html" class="desktop-link">Masaüstü Sürümüne Geç</a>
