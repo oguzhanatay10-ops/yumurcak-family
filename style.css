@@ -44,23 +44,24 @@ body {
     z-index: 10; max-width: 800px;
 }
 
-/* EMOJİLER (BİLGİSAYARDAKİ YERLERİ) */
+/* EMOJİLER (BİLGİSAYARDAKİ ESKİ YERLERİ) */
 .sticker { 
     position: absolute; font-size: 80px; cursor: pointer; z-index: 5; 
     animation: bounce 2.5s infinite ease-in-out; display: inline-block; 
 }
 #rainbow { top: 350px; left: 10%; } 
 #candy   { top: 350px; right: 10%; } 
-#wheel   { bottom: 150px; left: 15%; } 
-#rocket  { bottom: 150px; right: 15%; } 
+
+/* Bilgisayarda tekerlek ve roket tekrar eski aşağı konumunda */
+#wheel   { bottom: 100px; left: 15%; } 
+#rocket  { bottom: 100px; right: 15%; } 
 
 @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-/* --- SADECE TELEFONLAR İÇİN (MOBILE ONLY) --- */
+/* --- SADECE TELEFONLAR İÇİN (Buraya dokunma, telefon ayarların burada) --- */
 @media (max-width: 768px) {
-    .poncik-header { font-size: 45px; padding: 60px 15px; }
+    .poncik-header { font-size: 40px; padding: 50px 10px; }
 
-    /* Butonları yan yana ve küçük yap */
     .nav-container {
         flex-direction: row !important;
         gap: 10px !important;
@@ -69,42 +70,40 @@ body {
     }
 
     .menu-btn {
-        padding: 10px 15px !important;
-        font-size: 16px !important;
+        padding: 8px 12px !important;
+        font-size: 15px !important;
         border-width: 4px !important;
         box-shadow: 0 4px 0px #ffcc00 !important;
     }
 
     .welcome-msg {
-        margin-top: 150px !important;
-        font-size: 20px !important;
-        padding: 0 60px !important;
+        margin-top: 140px !important;
+        font-size: 19px !important;
+        padding: 0 50px !important;
     }
 
-    .sticker { font-size: 45px !important; }
+    .sticker { font-size: 40px !important; }
     
-    /* Telefon Köşe Ayarları */
     #rainbow { top: 180px !important; left: 5% !important; }
     #candy   { top: 180px !important; right: 5% !important; }
     
-    /* Wheel ve Rocket'i telefonda yukarı taşıdık */
+    /* Telefondaki özel yukarı konumları */
     #wheel { 
         top: auto !important; 
         bottom: 220px !important; 
-        left: 10% !important; 
+        left: 8% !important; 
     } 
     #rocket { 
         top: auto !important; 
         bottom: 220px !important; 
-        right: 10% !important; 
+        right: 8% !important; 
     }
 }
 
-/* --- DİĞER SAYFALAR VE RENKLER (DEĞİŞMEDİ) --- */
-.page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; animation: fadeIn 0.5s; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.char-img { width: 350px; border-radius: 40px; margin: 30px auto; display: block; }
-.hikaye-box { max-width: 750px; margin: 20px auto; padding: 30px; border-radius: 40px; text-align: left; font-size: 20px; line-height: 1.6; }
+/* --- DİĞER SAYFALAR (DEĞİŞMEDİ) --- */
+.page { display: none; min-height: 100vh; text-align: center; padding-bottom: 80px; }
+.char-img { width: 300px; border-radius: 40px; margin: 20px auto; display: block; }
+.hikaye-box { max-width: 700px; margin: 15px auto; padding: 25px; border-radius: 35px; text-align: left; font-size: 18px; line-height: 1.6; }
 
 #ertugrul-sayfasi { background: #000; color: white; }
 .ert-header { background: #111; padding: 40px; border-bottom: 8px solid red; color: red; font-size: 45px; font-family: 'Fredoka One'; }
