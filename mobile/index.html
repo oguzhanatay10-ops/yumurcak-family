@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>Mobil Sayfa</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil Sayfa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2d3436; font-size: 24px; }
+        p { color: #636e72; line-height: 1.6; }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #0984e3;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .desktop-link {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #b2bec3;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mobil Sayfaya Hoş Geldin!</h1>
-    <p>Bu sayfa telefonlar için özel olarak hazırlandı.</p>
-    <a href="../index.html">Masaüstü Sürümüne Dön</a>
+
+    <div class="container">
+        <h1>Mobil Dünyaya Hoş Geldin! 📱</h1>
+        <p>Bu sayfa telefonun için özel olarak tasarlandı. Burada daha hızlı ve kolay bir deneyim yaşayabilirsin.</p>
+        <a href="#" class="btn">Hemen Başla</a>
+    </div>
+
+    <a href="../index.html" class="desktop-link">Masaüstü Sürümüne Geç</a>
+
 </body>
 </html>
