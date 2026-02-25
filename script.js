@@ -1,31 +1,35 @@
 /* script.js - Yumurcak Family Tüm Fonksiyonlar */
 
 let activePage = 'anasayfa';
+
+// --- 1. MÜZİK SİSTEMİ (Geliştirilmiş) ---
 const myMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("music-toggle");
 
-// --- 1. MÜZİK SİSTEMİ ---
-
-// Tarayıcıların otomatik oynatma engeli için: İlk tıkta müziği başlatır
 function startMusicOnFirstInteraction() {
     if (myMusic) {
+        // Bazı tarayıcılar için önce sessize alıp sonra başlatıp sesi açıyoruz
+        myMusic.muted = false; 
         myMusic.play().then(() => {
-            musicBtn.innerText = "🔊";
-            // Başarıyla başladıysa bu dinleyicileri kaldır ki her tıkta müziği kurcalamasın
+            if (musicBtn) musicBtn.innerText = "🔊";
+            console.log("Müzik başarıyla başladı!");
+            // Bir kez çalıştıktan sonra dinleyicileri kaldırıyoruz
             document.removeEventListener("click", startMusicOnFirstInteraction);
             document.removeEventListener("touchstart", startMusicOnFirstInteraction);
+            document.removeEventListener("keydown", startMusicOnFirstInteraction);
         }).catch(error => {
-            console.log("Müzik için etkileşim bekleniyor...");
+            console.log("Müzik için hala kullanıcı etkileşimi bekleniyor...");
         });
     }
 }
 
+// Tüm etkileşim türlerini dinleyelim
 document.addEventListener("click", startMusicOnFirstInteraction);
 document.addEventListener("touchstart", startMusicOnFirstInteraction);
+document.addEventListener("keydown", startMusicOnFirstInteraction);
 
-// Müzik Açma/Kapatma Butonu Fonksiyonu
 function toggleMusic(event) {
-    if (event) event.stopPropagation(); // Tıklamanın diğer elementlere yayılmasını engeller
+    if (event) event.stopPropagation(); 
     if (myMusic.paused) {
         myMusic.play();
         musicBtn.innerText = "🔊";
@@ -40,22 +44,25 @@ function toggleMusic(event) {
 function sayfaDegistir(sayfa) {
     activePage = sayfa;
     
-    // Önce her şeyi gizle
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById('anasayfa').style.display = 'none';
+    // Önce ana sayfayı ve tüm diğer sayfaları gizle
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none');
+    
+    const anasayfa = document.getElementById('anasayfa');
+    if (anasayfa) anasayfa.style.display = 'none';
     
     // İstenen sayfayı göster
     if (sayfa === 'anasayfa') {
-        document.getElementById('anasayfa').style.display = 'block'; // HTML yapısına göre block veya flex
+        if (anasayfa) anasayfa.style.display = 'block';
     } else {
-        const pElement = document.getElementById(sayfa + '-sayfasi');
-        if (pElement) {
-            pElement.style.display = 'block';
-            window.scrollTo(0, 0); // Sayfa değişince en üste çıkar
+        const targetPage = document.getElementById(sayfa + '-sayfasi');
+        if (targetPage) {
+            targetPage.style.display = 'block';
+            window.scrollTo(0, 0); 
         }
     }
     
-    // Karakter menüsü açıksa kapat
+    // Menü açıksa kapat
     const dropdown = document.getElementById("myDropdown");
     if (dropdown) dropdown.classList.remove("show");
 }
@@ -64,14 +71,14 @@ function sayfaDegistir(sayfa) {
 
 function toggleMenu(e) { 
     if(e) e.stopPropagation(); 
-    document.getElementById("myDropdown").classList.toggle("show"); 
+    const dropdown = document.getElementById("myDropdown");
+    if (dropdown) dropdown.classList.toggle("show"); 
 }
 
-// Ekranın boş bir yerine basınca açık olan menüyü kapatır
+// Menü dışına tıklandığında kapatma
 window.onclick = function(event) { 
     const dropdown = document.getElementById("myDropdown");
     if (dropdown && dropdown.classList.contains('show')) {
-        // Eğer tıklanan şey menü butonu değilse kapat
         if (!event.target.matches('.menu-btn')) {
             dropdown.classList.remove("show"); 
         }
@@ -107,15 +114,14 @@ function candyRain(e) {
         candy.style.left = Math.random() * 100 + "vw"; 
         candy.style.fontSize = "50px"; 
         candy.style.zIndex = "10001";
+        candy.style.pointerEvents = "none"; // Tıklamayı engellemesin
         candy.style.transition = "transform 3s linear"; 
         document.body.appendChild(candy);
         
-        // Şekerleri düşür
         setTimeout(() => { 
             candy.style.transform = "translateY(110vh) rotate(360deg)"; 
         }, 50);
         
-        // Belleği yormamak için şekerleri temizle
         setTimeout(() => candy.remove(), 3100);
     }
 }
@@ -135,6 +141,6 @@ function startWheel(el, e) {
 function changeBg(e) { 
     if(e) e.stopPropagation(); 
     const randomColor = `hsl(${Math.random() * 360}, 100%, 97%)`;
-    // Ana sayfa arka planını değiştirir
-    document.getElementById('anasayfa').style.background = randomColor; 
+    const anaDiv = document.getElementById('anasayfa');
+    if (anaDiv) anaDiv.style.background = randomColor; 
 }
