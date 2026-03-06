@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yumu TV - Playlist Özel</title>
+    <title>Yumu TV - Playlist & Legends</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* SARI ÇİZGİLERİ VE TÜM GEREKSİZ BORDERLARI SİLDİK */
+        /* TÜM SARI ÇİZGİLER VE GEREKSİZ KENARLIKLAR SİLİNDİ */
         body {
             background: #050505; 
             color: white;
@@ -24,7 +24,7 @@
             padding: 15px;
             border-radius: 20px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.9);
-            border-bottom: none !important;
+            border: none !important;
         }
 
         .video-box {
@@ -34,7 +34,6 @@
             overflow: hidden;
             border-radius: 12px;
             background: black;
-            box-shadow: inset 0 0 20px rgba(255,255,255,0.05);
         }
 
         .video-box iframe {
@@ -61,7 +60,7 @@
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             font-size: 0.9em;
             display: flex;
             flex-direction: column;
@@ -69,17 +68,22 @@
             gap: 5px;
         }
 
-        /* Spor Kanalı - Senin Playlistin */
+        /* Playlist Butonları (Yeşil) */
         .btn-playlist {
             background: #004d40;
             border-color: #00695c;
-            color: #e0f2f1;
+        }
+
+        /* Efsane Şarkı Butonu (Altın/Sarı Tonu ama Çizgi Değil!) */
+        .btn-legend {
+            background: #b8860b;
+            border-color: #daa520;
+            color: white;
         }
 
         .tv-btn:hover {
-            background: #e50914; /* Netflix kırmızısı gibi canlı bir renk */
+            background: #e50914;
             color: white;
-            border-color: #ff1f1f;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
         }
@@ -91,18 +95,13 @@
             text-decoration: none;
             font-size: 0.9em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .home-btn:hover {
-            color: white;
         }
     </style>
 </head>
 <body>
 
-    <h1 style="margin-bottom: 30px; font-weight: 900; letter-spacing: -1px;">
-        <span style="color: #ff0000;">YUMU</span> TV <span style="font-weight: 100; color: #666;">|</span> LIVE
+    <h1 style="margin-bottom: 30px; font-weight: 900;">
+        <span style="color: #ff0000;">YUMU</span> TV <span style="font-weight: 100; color: #444;">|</span> LEGENDS
     </h1>
 
     <div class="tv-frame">
@@ -112,23 +111,21 @@
 
         <div class="channel-grid">
             <button class="tv-btn btn-playlist" onclick="playVideo('S7M80Y9-L6M')">
-                <span>⚽</span> Spor Kanalı 1
+                <span>⚽</span> Spor 1
             </button>
             <button class="tv-btn btn-playlist" onclick="playVideo('7qX_qP6E6lM')">
-                <span>⚽</span> Spor Kanalı 2
+                <span>⚽</span> Spor 2
             </button>
-            <button class="tv-btn btn-playlist" onclick="playVideo('p_50D69O_Y0')">
-                <span>⚽</span> Spor Kanalı 3
+            
+            <button class="tv-btn btn-legend" onclick="playVideo('dQw4w9WgXcQ')">
+                <span>🎵</span> NEVER GONNA GIVE YOU UP
             </button>
             
             <button class="tv-btn" onclick="playVideo('Z7y4H2S1X8k')">
-                <span>📰</span> Haber 24
-            </button>
-            <button class="tv-btn" onclick="playVideo('dQw4w9WgXcQ')">
-                <span>🎬</span> Belgesel
+                <span>📰</span> Haber
             </button>
             <button class="tv-btn" onclick="playVideo('yU9o_2nJj_k')">
-                <span>🎮</span> Oyun Dünyası
+                <span>🎮</span> Oyun
             </button>
         </div>
     </div>
@@ -138,14 +135,7 @@
     <script>
         function playVideo(id) {
             const player = document.getElementById('tvPlayer');
-            // Playlist içindeki tekil videoları oynatır
             player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
-        }
-
-        // Eğer butona basınca tüm playlist başlasın istersen:
-        function playFullPlaylist() {
-            const player = document.getElementById('tvPlayer');
-            player.src = "https://www.youtube.com/embed/videoseries?list=PLZxHtN95t-ob1f0wl_4vNLgn7rNicNxSn&autoplay=1";
         }
     </script>
 
