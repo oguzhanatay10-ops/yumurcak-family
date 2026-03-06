@@ -126,12 +126,11 @@
     <a href="index.html" class="home-btn">← ANA SAYFAYA DÖN</a>
 
     <script>
-        function playVideo(id) {
-            const player = document.getElementById('tvPlayer');
-            // 'enablejsapi=1' ve 'origin' ekleyerek erişim sorunlarını azaltıyoruz
-            const currentOrigin = window.location.origin;
-            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&enablejsapi=1&origin=" + currentOrigin;
-        }
+        // YENİ VE ÇALIŞAN HALİ BU
+function playVideo(id) {
+    const player = document.getElementById('tvPlayer');
+    player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+}
     </script>
 
 </body>
