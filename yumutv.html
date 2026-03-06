@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yumu TV - Playlist & Legends</title>
+    <title>Yumu TV - Kesintisiz Yayın</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* TÜM SARI ÇİZGİLER VE GEREKSİZ KENARLIKLAR SİLİNDİ */
+        /* SARI ÇİZGİLER VE GEREKSİZ TÜM KENARLIKLAR KALDIRILDI */
         body {
             background: #050505; 
             color: white;
@@ -68,18 +68,8 @@
             gap: 5px;
         }
 
-        /* Playlist Butonları (Yeşil) */
-        .btn-playlist {
-            background: #004d40;
-            border-color: #00695c;
-        }
-
-        /* Efsane Şarkı Butonu (Altın/Sarı Tonu ama Çizgi Değil!) */
-        .btn-legend {
-            background: #b8860b;
-            border-color: #daa520;
-            color: white;
-        }
+        .btn-playlist { background: #004d40; border-color: #00695c; }
+        .btn-legend { background: #b8860b; border-color: #daa520; color: white; }
 
         .tv-btn:hover {
             background: #e50914;
@@ -93,36 +83,39 @@
             display: inline-block;
             color: #555;
             text-decoration: none;
-            font-size: 0.9em;
-            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
     <h1 style="margin-bottom: 30px; font-weight: 900;">
-        <span style="color: #ff0000;">YUMU</span> TV <span style="font-weight: 100; color: #444;">|</span> LEGENDS
+        <span style="color: #ff0000;">YUMU</span> TV <span style="font-weight: 100; color: #444;">|</span> CANLI
     </h1>
 
     <div class="tv-frame">
         <div class="video-box">
-            <iframe id="tvPlayer" src="https://www.youtube.com/embed/videoseries?list=PLZxHtN95t-ob1f0wl_4vNLgn7rNicNxSn" allowfullscreen></iframe>
+            <iframe id="tvPlayer" 
+                    src="https://www.youtube.com/embed/videoseries?list=PLZxHtN95t-ob1f0wl_4vNLgn7rNicNxSn" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
         </div>
 
         <div class="channel-grid">
             <button class="tv-btn btn-playlist" onclick="playVideo('S7M80Y9-L6M')">
-                <span>⚽</span> Spor 1
+                <span>⚽</span> Spor Kanalı 1
             </button>
+            
             <button class="tv-btn btn-playlist" onclick="playVideo('7qX_qP6E6lM')">
-                <span>⚽</span> Spor 2
+                <span>⚽</span> Spor Kanalı 2
             </button>
             
             <button class="tv-btn btn-legend" onclick="playVideo('dQw4w9WgXcQ')">
-                <span>🎵</span> NEVER GONNA GIVE YOU UP
+                <span>🎵</span> LEGEND (Rick)
             </button>
             
             <button class="tv-btn" onclick="playVideo('Z7y4H2S1X8k')">
-                <span>📰</span> Haber
+                <span>📰</span> Haber 24
             </button>
             <button class="tv-btn" onclick="playVideo('yU9o_2nJj_k')">
                 <span>🎮</span> Oyun
@@ -135,7 +128,8 @@
     <script>
         function playVideo(id) {
             const player = document.getElementById('tvPlayer');
-            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+            // Yeni videoyu yükle ve autoplay ekle
+            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&mute=0";
         }
     </script>
 
