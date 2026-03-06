@@ -125,13 +125,13 @@
 
     <a href="index.html" class="home-btn">← ANA SAYFAYA DÖN</a>
 
-    <script>
-        // YENİ VE ÇALIŞAN HALİ BU
-function playVideo(id) {
-    const player = document.getElementById('tvPlayer');
-    player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
-}
-    </script>
+<script>
+    function playVideo(id) {
+        const player = document.getElementById('tvPlayer');
+        // 'playlist' parametresini ekleyerek YouTube engelini aşıyoruz
+        player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&playlist=" + id;
+    }
+</script>
 
 </body>
 </html>
