@@ -209,9 +209,28 @@
         <button class="back-btn" onclick="sayfaDegistir('anasayfa')" style="margin-top: 20px;">← Geri Dön</button>
     </div>
 <audio id="bgMusic" loop>
-        <source src="videoplayback.m4a" type="audio/mp4">
-    </audio>
+    <source src="videoplayback.m4a" type="audio/mp4">
+</audio>
 
-    <script src="script.js"></script>
+<script src="script.js"></script> <script>
+// Müziği çalıştıran özel fonksiyon
+function toggleMusic(event) {
+    if (event) event.stopPropagation();
+    var music = document.getElementById("bgMusic");
+    var btn = document.getElementById("music-toggle");
+
+    if (music.paused) {
+        music.play().then(() => {
+            btn.innerHTML = "🔊";
+        }).catch(e => {
+            console.log("Müzik hatası:", e);
+            alert("Müzik dosyası bulunamadı veya tarayıcı engelledi!");
+        });
+    } else {
+        music.pause();
+        btn.innerHTML = "🔇";
+    }
+}
+</script>
 </body>
 </html>
