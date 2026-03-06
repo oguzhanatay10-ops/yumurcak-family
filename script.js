@@ -1,42 +1,9 @@
-/* script.js - Yumurcak Family Tam Sürüm */
+/* script.js - Yumurcak Family Tertemiz Sürüm */
 
-// 1. DEĞİŞKENLERİ TANIMLAYALIM
-const myMusic = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("music-toggle");
+// 1. DEĞİŞKENLER
 let activePage = 'anasayfa';
 
-// 2. SES SİSTEMİ (Tarayıcı Engelini Aşan Versiyon)
-function sesiBaslat() {
-    if (myMusic) {
-        myMusic.play().then(() => {
-            musicBtn.innerText = "🔊";
-            console.log("Müzik başladı!");
-            // Müzik bir kez başladıktan sonra bu dinleyicileri kaldırıyoruz
-            document.removeEventListener("click", sesiBaslat);
-            document.removeEventListener("touchstart", sesiBaslat);
-        }).catch(error => {
-            console.log("Ses çalma hatası. Bir etkileşim bekleniyor.");
-        });
-    }
-}
-
-// Kullanıcı sayfada herhangi bir yere tıkladığında veya dokunduğunda müziği tetikle
-document.addEventListener("click", sesiBaslat);
-document.addEventListener("touchstart", sesiBaslat);
-
-// Hoparlör Butonu (Aç/Kapat)
-function toggleMusic(event) {
-    if (event) event.stopPropagation(); // Tıklamanın diğer objelere gitmesini engeller
-    if (myMusic.paused) {
-        myMusic.play();
-        musicBtn.innerText = "🔊";
-    } else {
-        myMusic.pause();
-        musicBtn.innerText = "🔇";
-    }
-}
-
-// 3. SAYFA DEĞİŞTİRME SİSTEMİ
+// 2. SAYFA DEĞİŞTİRME SİSTEMİ
 function sayfaDegistir(sayfaId) {
     activePage = sayfaId;
 
@@ -64,10 +31,16 @@ function sayfaDegistir(sayfaId) {
     if (dropdown) dropdown.classList.remove("show");
 }
 
-// 4. KARAKTER MENÜSÜ (DROPDOWN)
+// 3. KARAKTER MENÜSÜ (DROPDOWN)
 function toggleMenu(event) {
-    if (event) event.stopPropagation();
-    document.getElementById("myDropdown").classList.toggle("show");
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    const dropdown = document.getElementById("myDropdown");
+    if (dropdown) {
+        dropdown.classList.toggle("show");
+    }
 }
 
 // Menü dışına tıklandığında menüyü kapatır
@@ -83,7 +56,7 @@ window.onclick = function(event) {
     }
 }
 
-// 5. EĞLENCELİ STICKER ANİMASYONLARI
+// 4. EĞLENCELİ STICKER ANİMASYONLARI
 
 // Roket Fırlatma (🚀)
 function launchRocket(el, event) {
@@ -137,5 +110,6 @@ function changeBg(event) {
     if (event) event.stopPropagation();
     const colors = ['#fff5f5', '#f0fff4', '#f0f9ff', '#fffaf0', '#f5f5ff'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    document.getElementById('anasayfa').style.background = randomColor;
+    const anasayfa = document.getElementById('anasayfa');
+    if (anasayfa) anasayfa.style.background = randomColor;
 }
