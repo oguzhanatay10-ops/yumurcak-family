@@ -173,3 +173,4 @@ body {
 #kurbaga-sayfasi .back-btn { background: #388e3c; }
 #corkie-sayfasi .back-btn { background: #8b4513; }
 #haticee-sayfasi .back-btn { background: #33691e; } /* Haticee Buton Rengi */
+.show { display: block !important; }
