@@ -3,39 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yumurcak TV - Canlı Yayın</title>
+    <title>Yumu TV - Canlı Yayın</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { 
-            background: #1a1a1a; 
-            color: white; 
-            font-family: 'Arial', sans-serif; 
-            text-align: center; 
+        body {
+            background: #1a1a1a; /* TV atmosferi için koyu arka plan */
+            color: white;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
             margin: 0;
             padding: 20px;
         }
-        h1 { color: #ff0000; text-shadow: 2px 2px #000; }
-        
-        /* TV Kasası Tasarımı */
+
         .tv-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 15px;
+            margin: 0 auto;
             background: #333;
-            border: 12px solid #444;
-            border-radius: 30px;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
-            position: relative;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+            border: 10px solid #444;
         }
 
-        /* Video Alanı */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Ekran Oranı */
+            padding-bottom: 56.25%; /* 16:9 Oranı */
             height: 0;
             overflow: hidden;
             border-radius: 10px;
-            background: #000;
+            background: black;
         }
+
         .video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -45,63 +43,68 @@
             border: none;
         }
 
-        /* Kanal Düğmeleri */
-        .tv-controls {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .channel-btn {
-            background: #444;
-            color: white;
-            border: 2px solid #555;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .channel-btn:hover {
-            background: #ff0000;
-            border-color: #fff;
+        .channel-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        .back-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
+        .channel-btn {
+            background: #cc0000;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
             font-weight: bold;
+            transition: 0.3s;
+            font-size: 1em;
+            box-shadow: 0 4px 0 #880000;
+        }
+
+        .channel-btn:hover {
+            background: #ff0000;
+            transform: scale(1.05);
+        }
+
+        .channel-btn:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+
+        .back-home {
+            margin-top: 30px;
+            display: inline-block;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
-    <h1>🔴 YUMU TV CANLI</h1>
-    <p>YouTube'a gitmeden izle!</p>
+    <h1 style="color: #ff0000; text-shadow: 2px 2px black;">📺 YUMU TV CANLI</h1>
 
     <div class="tv-container">
         <div class="video-wrapper">
-            <iframe id="tvPlayer" src="https://www.youtube.com/embed/QNcuxXA4x-U?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="mainPlayer" src="https://www.youtube.com/embed/S7M80Y9-L6M" allowfullscreen></iframe>
         </div>
 
-        <div class="tv-controls">
-            <button class="channel-btn" onclick="degistir('QNcuxXA4x-U')">📺 Bölüm 1</button>
-            <button class="channel-btn" onclick="degistir('S8S8S8S8S8S')">📺 Bölüm 2</button>
-            <button class="channel-btn" onclick="degistir('X9X9X9X9X9X')">📺 Bölüm 3</button>
+        <div class="channel-list">
+            <button class="channel-btn" onclick="kanalDegistir('S7M80Y9-L6M')">⚽ Spor Kanalı</button>
+            <button class="channel-btn" onclick="kanalDegistir('Z7y4H2S1X8k')">📰 Haber Kanalı</button>
+            <button class="channel-btn" onclick="kanalDegistir('dQw4w9WgXcQ')">🎬 Belgesel Kuşağı</button>
+            <button class="channel-btn" onclick="kanalDegistir('yU9o_2nJj_k')">🎮 Oyun Dünyası</button>
         </div>
     </div>
 
-    <br>
-    <a href="index.html" class="back-btn">🏠 Ana Sayfaya Dön</a>
+    <a href="index.html" class="back-home">← Ana Sayfaya Dön</a>
 
     <script>
-        function degistir(videoID) {
-            var player = document.getElementById('tvPlayer');
+        function kanalDegistir(videoID) {
+            const player = document.getElementById('mainPlayer');
+            // Videoyu otomatik başlatmak için autoplay ekliyoruz
             player.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1";
         }
     </script>
