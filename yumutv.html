@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yumu TV - Kesintisiz Yayın</title>
+    <title>Yumu TV - Canlı Yayın</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* SARI ÇİZGİLER VE GEREKSİZ TÜM KENARLIKLAR KALDIRILDI */
+        /* SARI ÇİZGİLERİ VE TÜM GEREKSİZ BORDERLARI SİLDİK */
         body {
             background: #050505; 
             color: white;
@@ -95,7 +95,7 @@
     <div class="tv-frame">
         <div class="video-box">
             <iframe id="tvPlayer" 
-                    src="https://www.youtube.com/embed/videoseries?list=PLZxHtN95t-ob1f0wl_4vNLgn7rNicNxSn" 
+                    src="https://www.youtube.com/embed/videoseries?list=PLZxHtN95t-ob1f0wl_4vNLgn7rNicNxSn&enablejsapi=1" 
                     allow="autoplay; encrypted-media" 
                     allowfullscreen>
             </iframe>
@@ -128,8 +128,9 @@
     <script>
         function playVideo(id) {
             const player = document.getElementById('tvPlayer');
-            // Yeni videoyu yükle ve autoplay ekle
-            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&mute=0";
+            // 'enablejsapi=1' ve 'origin' ekleyerek erişim sorunlarını azaltıyoruz
+            const currentOrigin = window.location.origin;
+            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&enablejsapi=1&origin=" + currentOrigin;
         }
     </script>
 
