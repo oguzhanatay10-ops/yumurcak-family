@@ -31,9 +31,6 @@
     </style>
 </head>
 <body>
-<div id="music-toggle" class="sticker" onclick="toggleMusic(event)" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; font-size: 30px; cursor: pointer;">
-    🔊
-</div>
 <div id="anasayfa">
         <div id="rainbow" class="sticker" onclick="changeBg(event)">🌈</div>
         <div id="candy"   class="sticker" onclick="candyRain(event)">🍭</div>
@@ -208,38 +205,5 @@
         
         <button class="back-btn" onclick="sayfaDegistir('anasayfa')" style="margin-top: 20px;">← Geri Dön</button>
     </div>
-<audio id="bgMusic" loop preload="auto">
-    <source src="videoplayback.m4a" type="audio/mp4">
-    <source src="videoplayback.m4a" type="audio/mpeg">
-</audio>
-
-<script src="script.js"></script> 
-
-<script>
-// Sayfa yüklendiğinde müzik objesini hazırlayalım
-var music = document.getElementById("bgMusic");
-var btn = document.getElementById("music-toggle");
-
-// Müziği çalıştıran fonksiyon
-function toggleMusic(event) {
-    if (event) event.stopPropagation();
-    
-    if (music.paused) {
-        // Tarayıcıya "kullanıcı tıkladı, çalabilirsin" diyoruz
-        music.play().then(() => {
-            btn.innerHTML = "🔊";
-            btn.style.color = "green"; // Çalınca yeşil olsun (isteğe bağlı)
-        }).catch(e => {
-            console.error("Oynatma hatası:", e);
-            // Eğer hala çalmıyorsa dosya adını kontrol et uyarısı
-            alert("Müzik dosyası (videoplayback.m4a) bulunamadı. Lütfen GitHub'da bu isimle bir dosya olduğundan emin ol!");
-        });
-    } else {
-        music.pause();
-        btn.innerHTML = "🔇";
-        btn.style.color = "black";
-    }
-}
-</script>
 </body>
 </html>
