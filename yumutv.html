@@ -6,31 +6,34 @@
     <title>Yumu TV - Canlı Yayın</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* SARI ÇİZGİYİ VE TÜM GEREKSİZ ALT ÇİZGİLERİ KALDIRDIK */
         body {
-            background: #1a1a1a; /* TV atmosferi için koyu arka plan */
+            background: #0f0f0f; 
             color: white;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             margin: 0;
             padding: 20px;
+            border: none !important; /* Her ihtimale karşı border'ları sıfırladık */
         }
 
         .tv-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #333;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
-            border: 10px solid #444;
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            /* Alt kısımdaki olası çizgileri engellemek için: */
+            border-bottom: none !important; 
         }
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Oranı */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 8px;
             background: black;
         }
 
@@ -45,67 +48,83 @@
 
         .channel-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 25px;
         }
 
         .channel-btn {
-            background: #cc0000;
+            background: #282828;
             color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 10px;
+            border: 1px solid #444;
+            padding: 12px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
-            font-size: 1em;
-            box-shadow: 0 4px 0 #880000;
+            transition: all 0.2s;
+        }
+
+        /* Spor Kanalı Özel Rengi */
+        .sport-btn {
+            background: #2e7d32 !important; /* Yeşil - Saha rengi */
+            border: none;
         }
 
         .channel-btn:hover {
             background: #ff0000;
-            transform: scale(1.05);
-        }
-
-        .channel-btn:active {
-            transform: translateY(4px);
-            box-shadow: none;
+            border-color: #ff0000;
+            transform: translateY(-2px);
         }
 
         .back-home {
-            margin-top: 30px;
+            margin-top: 40px;
             display: inline-block;
-            color: #aaa;
+            color: #888;
             text-decoration: none;
-            font-size: 0.9em;
+            font-weight: bold;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            color: white;
+            border-bottom: 1px solid white;
         }
     </style>
 </head>
 <body>
 
-    <h1 style="color: #ff0000; text-shadow: 2px 2px black;">📺 YUMU TV CANLI</h1>
+    <h1 style="margin-bottom: 25px; letter-spacing: 2px;">📺 <span style="color: #ff0000;">YUMU</span> TV</h1>
 
     <div class="tv-container">
         <div class="video-wrapper">
-            <iframe id="mainPlayer" src="https://www.youtube.com/embed/S7M80Y9-L6M" allowfullscreen></iframe>
+            <iframe id="mainPlayer" src="https://www.youtube.com/embed/Z7y4H2S1X8k" allowfullscreen></iframe>
         </div>
 
         <div class="channel-list">
-            <button class="channel-btn" onclick="kanalDegistir('S7M80Y9-L6M')">⚽ Spor Kanalı</button>
+            <button class="channel-btn sport-btn" onclick="sporBaglan()">⚽ Spor (Selçuk Sports)</button>
             <button class="channel-btn" onclick="kanalDegistir('Z7y4H2S1X8k')">📰 Haber Kanalı</button>
-            <button class="channel-btn" onclick="kanalDegistir('dQw4w9WgXcQ')">🎬 Belgesel Kuşağı</button>
-            <button class="channel-btn" onclick="kanalDegistir('yU9o_2nJj_k')">🎮 Oyun Dünyası</button>
+            <button class="channel-btn" onclick="kanalDegistir('dQw4w9WgXcQ')">🎬 Belgesel</button>
+            <button class="channel-btn" onclick="kanalDegistir('yU9o_2nJj_k')">🎮 Oyun</button>
         </div>
     </div>
 
-    <a href="index.html" class="back-home">← Ana Sayfaya Dön</a>
+    <br>
+    <a href="index.html" class="back-home">🏠 ANA SAYFAYA DÖN</a>
 
     <script>
         function kanalDegistir(videoID) {
             const player = document.getElementById('mainPlayer');
-            // Videoyu otomatik başlatmak için autoplay ekliyoruz
             player.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1";
+        }
+
+        function sporBaglan() {
+            // Selçuk Sports linkini buraya yazabilirsin (Link değiştikçe burayı güncellersin)
+            // Şu an örnek bir arama linki koyuyorum:
+            window.open("https://www.google.com/search?q=selcuk+sports+guncel+giris", "_blank");
+            
+            // Eğer direkt linki biliyorsan şöyle yapabilirsin:
+            // window.open("https://selcuksportshd666.xyz", "_blank");
         }
     </script>
 
